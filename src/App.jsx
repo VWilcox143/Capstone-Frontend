@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Auth from './components/auth/Auth';
+import { useState, useEffect  } from 'react';
 
 function App() {
+
+  const [ sessionToken, setSessionToken ] = useState('sample');
+
+  console.log('App:', sessionToken);
+
+  const updateToken = newToken => {
+    localStorage.setItem('token', newToken)
+    setSessionToken(newToken)
+  }
+
+  useEffect(() => {
+    if(localStorage.getItem('token')) {
+      setSessionToken(localStorage.getItem('token'))
+    }
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Routes>
+        <Route 
+          path='/'
+          element={<Auth updateToken={updateToken}/>}
+        />
+        <Route 
+          path='/tasks'
+          element={<h2>Task Section Placeholder</h2>}
+        />
+      </Routes>
+
     </div>
   );
 }
