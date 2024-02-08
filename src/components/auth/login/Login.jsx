@@ -31,12 +31,12 @@ function Login({updateToken}) {
             });
 
             const data = await response.json();
-            console.log(data);
+            console.log(data.results);
 
-            updateToken(data.token)
 
-            if(data.message === 'Login Successful') {
-                updateToken(data.token)
+
+            if(data.results.message === 'Login Successful') {
+                updateToken(data.results.token)
                 navigate('/tasks')
             } else {
                 alert(data.message)
