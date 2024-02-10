@@ -31,12 +31,10 @@ function Login({updateToken}) {
             });
 
             const data = await response.json();
-            console.log(data);
+            console.log(data.results);
 
-            updateToken(data.token)
-
-            if(data.message === 'Login Successful') {
-                updateToken(data.token)
+            if(data.results.message === 'Login Successful') {
+                updateToken(data.results.token)
                 navigate('/tasks')
             } else {
                 alert(data.message)
@@ -46,7 +44,7 @@ function Login({updateToken}) {
             console.error(err.message)
         }    }
 
-  return (
+    return (
     <>
     <h2>Log In</h2>
     <Form onSubmit={handleSubmit}>
@@ -71,7 +69,7 @@ function Login({updateToken}) {
             <Button type='submit'>Log In</Button>
     </Form>
     </>
-  )
+    )
 }
 
 export default Login
