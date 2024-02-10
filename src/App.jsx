@@ -5,7 +5,7 @@ import { useState, useEffect  } from 'react';
 
 function App() {
 
-  const [ sessionToken, setSessionToken ] = useState('sample');
+  const [ sessionToken, setSessionToken ] = useState('');
 
   console.log('App:', sessionToken);
 
