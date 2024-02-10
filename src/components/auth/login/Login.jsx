@@ -33,8 +33,11 @@ function Login({updateToken}) {
             const data = await response.json();
             console.log(data.results);
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> develop
             if(data.results.message === 'Login Successful') {
                 updateToken(data.results.token)
                 navigate('/tasks')
@@ -46,7 +49,7 @@ function Login({updateToken}) {
             console.error(err.message)
         }    }
 
-  return (
+    return (
     <>
     <h2>Log In</h2>
     <Form onSubmit={handleSubmit}>
@@ -71,7 +74,7 @@ function Login({updateToken}) {
             <Button type='submit'>Log In</Button>
     </Form>
     </>
-  )
+    )
 }
 
 export default Login
