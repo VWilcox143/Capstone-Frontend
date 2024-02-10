@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 import { baseURL } from '../../../environment'
+import { useNavigate } from 'react-router-dom';
 
 function Signup({updateToken}) {
 
@@ -8,6 +9,7 @@ function Signup({updateToken}) {
     const lastNameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -37,9 +39,15 @@ function Signup({updateToken}) {
             
             const response = await fetch(url, requestOptions)
             const data = await response.json();
-            // console.log(data)
+            console.log(data)
+            
+            if(data.results.message === `User has been registered.`) {
+                updateToken(data.token)
+                navigate('/tasks')
 
-            updateToken(data.token)
+            } else {
+                alert(data.results.message)
+            }
 
         } catch (err) {
             console.error(err.message)
