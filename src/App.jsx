@@ -2,10 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Auth from './components/auth/Auth';
 import { useState, useEffect  } from 'react';
+import TaskIndex from './components/tasks/TaskIndex'
+
 
 function App() {
 
-  const [ sessionToken, setSessionToken ] = useState('sample');
+  const [ sessionToken, setSessionToken ] = useState('');
 
   console.log('App:', sessionToken);
 
@@ -23,17 +25,16 @@ function App() {
 
   return (
     <div className="App">
-       <Routes>
+      <Routes>
         <Route 
           path='/'
           element={<Auth updateToken={updateToken}/>}
         />
         <Route 
           path='/tasks'
-          element={<h2>Task Section Placeholder</h2>}
+          element={<TaskIndex token={sessionToken}/>}
         />
       </Routes>
-
     </div>
   );
 }
