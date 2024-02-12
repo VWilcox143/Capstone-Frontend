@@ -3,13 +3,14 @@ import './App.css';
 import Auth from './components/auth/Auth';
 import { useState, useEffect  } from 'react';
 import TaskIndex from './components/tasks/TaskIndex'
+import Logout from './components/auth/login/Logout';
 
 
 function App() {
 
   const [ sessionToken, setSessionToken ] = useState('');
 
-  console.log('App:', sessionToken);
+  // console.log('App:', sessionToken);
 
   const updateToken = newToken => {
     localStorage.setItem('token', newToken)
@@ -25,6 +26,10 @@ function App() {
 
   return (
     <div className="App">
+      {
+        sessionToken !== '' ?
+        <Logout setToken={setSessionToken}/> : null
+      }
       <Routes>
         <Route 
           path='/'

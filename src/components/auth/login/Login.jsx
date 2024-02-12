@@ -33,11 +33,6 @@ function Login({updateToken}) {
             const data = await response.json();
             console.log(data.results);
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> develop
             if(data.results.message === 'Login Successful') {
                 updateToken(data.results.token)
                 navigate('/tasks')
