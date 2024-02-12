@@ -41,12 +41,21 @@ function TaskIndex(props) {
                 <Row>
                     <Col md='4'>
                         <TaskCreate 
+<<<<<<< HEAD
                         token={props.token} fetchTasks={fetchTasks} />
+=======
+                        token={props.token} 
+                        fetchTask={fetchTasks} />
+>>>>>>> 700c55ca02043c9ff307f71f71296cdd725156b8
                     </Col>
                     <Col md='8'>
                         <TasksTable 
                             token={props.token}
+<<<<<<< HEAD
                             fetchTasks={fetchTasks}
+=======
+                            fetchTask={fetchTasks}
+>>>>>>> 700c55ca02043c9ff307f71f71296cdd725156b8
                             tasks={tasks}/>
                     </Col> 
                 </Row>

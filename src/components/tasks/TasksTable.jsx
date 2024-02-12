@@ -4,7 +4,7 @@ import { baseURL } from '../../environment'
 import { useNavigate } from 'react-router-dom';
 
 function TasksTable({tasks, token, fetchTasks}) {
-    // console.log(movies)
+    // console.log(tasks)
 
     const navigate = useNavigate();
 
