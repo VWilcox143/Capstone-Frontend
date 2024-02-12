@@ -19,7 +19,6 @@ function TaskCreate(props) {
         const contact = contactRef.current.value;
         const email = emailRef.current.value;
         
-        const url =`${baseURL}/tasks`;
         
         let bodyObj = JSON.stringify({
             Job, hours, mileage, contact, email
@@ -29,6 +28,10 @@ function TaskCreate(props) {
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append('Authorization', props.token)
+
+        const url = `${baseURL}/tasks`;
+        const headers = new Headers();
+        headers.append("Content-type", "application/json");
         
         
         const requestOptions = {
@@ -44,11 +47,11 @@ function TaskCreate(props) {
             const data = await response.json();
             props.fetchTasks()
 
-            if(data.message === 'task added to collection') {
-                console.log(data)
-            }else {
-                alert(data.message)
-            }
+            // if(data.message === 'task added to collection') {
+            //     console.log(data)
+            // }else {
+            //     alert(data.message)
+            // }
 
         } catch (err) {
             console.error(err.message);
