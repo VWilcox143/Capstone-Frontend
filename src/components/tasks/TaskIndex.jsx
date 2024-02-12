@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import TaskCreate from './TaskCreate'
 import { Col, Container, Row } from 'reactstrap'
-// import TasksTable from './TasksTable'
+import TasksTable from './TasksTable'
 import { baseURL } from '../../environment'
 
 function TaskIndex(props) {
@@ -41,13 +41,14 @@ function TaskIndex(props) {
                 <Row>
                     <Col md='4'>
                         <TaskCreate 
-                        token={props.token} fetchTask={fetchTasks} />
+                        token={props.token} 
+                        fetchTask={fetchTasks} />
                     </Col>
                     <Col md='8'>
-                        {/* <TasksTable 
+                        <TasksTable 
                             token={props.token}
-                            fetchTask={fetchTask}
-                            tasks={tasks}/> */}
+                            fetchTask={fetchTasks}
+                            tasks={tasks}/>
                     </Col> 
                 </Row>
             </Container>
