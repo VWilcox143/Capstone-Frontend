@@ -59,7 +59,7 @@ function TasksTable({tasks, token, fetchTasks}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {
+                    { typeof tasks === "Array" &&
                         tasks.map(tasks => (
                             <tr key={tasks._id}>
                                 <th scope='row'>{tasks.job}</th>
