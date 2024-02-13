@@ -31,7 +31,7 @@ function TasksTable({tasks, token, fetchTasks}) {
             console.error(err.message);
         }
     }
-
+console.log(tasks)
     return (
         <>
             <h1>Task List</h1>
@@ -59,13 +59,13 @@ function TasksTable({tasks, token, fetchTasks}) {
                     </tr>
                 </thead>
                 <tbody>
-                    {
+                    { typeof tasks === "object" && 
                         tasks.map(tasks => (
                             <tr key={tasks._id}>
                                 <th scope='row'>{tasks.job}</th>
                                 <td>{tasks.hoursWorked}</td>
                                 <td>{tasks.mileage}</td>
-                                <td>{tasks.contact} mins</td>
+                                <td>{tasks.contact}</td>
                                 <td>{tasks.contactEmail}</td>
                                 <td>
                                     <Button
