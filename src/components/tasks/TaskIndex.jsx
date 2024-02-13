@@ -42,12 +42,12 @@ function TaskIndex(props) {
                     <Col md='4'>
                         <TaskCreate 
                         token={props.token} 
-                        fetchTask={fetchTasks} />
+                        fetchTasks={fetchTasks} />
                     </Col>
                     <Col md='8'>
                         <TasksTable 
                             token={props.token}
-                            fetchTask={fetchTasks}
+                            fetchTasks={fetchTasks}
                             tasks={tasks}/>
                     </Col> 
                 </Row>
