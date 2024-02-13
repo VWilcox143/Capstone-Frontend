@@ -14,14 +14,14 @@ function TaskCreate(props) {
         e.preventDefault();
 
         const Job = JobRef.current.value;
-        const hours = hoursRef.current.value;
+        const hoursWorked = hoursRef.current.value;
         const mileage = mileageRef.current.value;
         const contact = contactRef.current.value;
-        const email = emailRef.current.value;
+        const contactEmail = emailRef.current.value;
         
         
         let bodyObj = JSON.stringify({
-            Job, hours, mileage, contact, email
+            Job, hoursWorked, mileage, contact, contactEmail
         })
         console.log(bodyObj);
         
@@ -29,9 +29,9 @@ function TaskCreate(props) {
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append('Authorization', props.token)
 
-        const url = `${baseURL}/tasks`;
+        const url = `${baseURL}/tasks/tasks`;
         const headers = new Headers();
-        headers.append("Content-type", "application/json");
+        headers.append("Content-Type", "application/json");
         
         
         const requestOptions = {
@@ -65,6 +65,7 @@ function TaskCreate(props) {
                 <Label>Job</Label>
                 <Input 
                     innerRef={JobRef}
+                    type='string'
                     autoComplete='off'
                 />
             </FormGroup>
