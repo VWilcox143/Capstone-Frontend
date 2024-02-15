@@ -2,8 +2,9 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Auth from './components/auth/Auth';
 import { useState, useEffect  } from 'react';
-import TaskIndex from './components/tasks/TaskIndex'
+import TaskIndex from './components/tasks/TaskIndex';
 import Logout from './components/auth/login/Logout';
+import TaskEdit from './components/tasks/TaskEdit'
 
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
         <Route 
           path='/tasks'
           element={<TaskIndex token={sessionToken}/>}
+        />
+        <Route
+        path='/tasks/update/:id'
+        element={<TaskEdit token={sessionToken} />}
         />
       </Routes>
     </div>
