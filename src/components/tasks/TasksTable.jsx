@@ -31,7 +31,7 @@ function TasksTable({tasks, token, fetchTasks}) {
             console.error(err.message);
         }
     }
-
+// console.log(tasks)
     return (
         <>
             <h1>Task List</h1>
@@ -59,13 +59,15 @@ function TasksTable({tasks, token, fetchTasks}) {
                     </tr>
                 </thead>
                 <tbody>
-                    { typeof tasks === "Array" &&
+
+                    { typeof tasks === "object" &&
+
                         tasks.map(tasks => (
                             <tr key={tasks._id}>
-                                <th scope='row'>{tasks.job}</th>
+                                <th scope='row'>{tasks.Job}</th>
                                 <td>{tasks.hoursWorked}</td>
                                 <td>{tasks.mileage}</td>
-                                <td>{tasks.contact} mins</td>
+                                <td>{tasks.contact}</td>
                                 <td>{tasks.contactEmail}</td>
                                 <td>
                                     <Button
@@ -76,6 +78,12 @@ function TasksTable({tasks, token, fetchTasks}) {
                                         onClick={() => deleteTasks(tasks._id)}
                                         color='danger'
                                     >Delete</Button>
+
+                                    <Button
+
+                                        onClick={() => navigate(`/receipts/add/${tasks._id}`)}
+                                        color='success'
+                                    >Add Receipt</Button>
                                 </td>
                             </tr>
                         ))
