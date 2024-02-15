@@ -8,6 +8,7 @@ import Logout from './components/auth/login/Logout';
 import ReceiptCreate from './components/receipts/ReceiptCreate';
 
 
+
 function App() {
 
   const [ sessionToken, setSessionToken ] = useState('');
@@ -41,7 +42,6 @@ function App() {
           path='/tasks'
           element={<TaskIndex token={sessionToken}/>}
         />
-
         <Route 
           path='/tasks/update/:id'
           element={<h1>Hello world</h1>}
@@ -50,7 +50,10 @@ function App() {
           path='/receipts/add/:id'
           element={<ReceiptCreate token={sessionToken}/>}
         /> */}
-
+        <Route
+        path='/tasks/update/:id'
+        element={<TaskEdit token={sessionToken} />}
+        />
       </Routes>
     </div>
   );
