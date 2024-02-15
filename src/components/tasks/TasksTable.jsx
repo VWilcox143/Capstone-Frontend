@@ -59,7 +59,9 @@ function TasksTable({tasks, token, fetchTasks}) {
                     </tr>
                 </thead>
                 <tbody>
-                    { typeof tasks === "object" && 
+
+                    { typeof tasks === "object" &&
+
                         tasks.map(tasks => (
                             <tr key={tasks._id}>
                                 <th scope='row'>{tasks.Job}</th>
@@ -76,7 +78,9 @@ function TasksTable({tasks, token, fetchTasks}) {
                                         onClick={() => deleteTasks(tasks._id)}
                                         color='danger'
                                     >Delete</Button>
+
                                     <Button
+
                                         onClick={() => navigate(`/receipts/add/${tasks._id}`)}
                                         color='success'
                                     >Add Receipt</Button>
