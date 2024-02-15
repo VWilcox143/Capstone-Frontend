@@ -31,7 +31,7 @@ function TasksTable({tasks, token, fetchTasks}) {
             console.error(err.message);
         }
     }
-console.log(tasks)
+// console.log(tasks)
     return (
         <>
             <h1>Task List</h1>
@@ -76,6 +76,10 @@ console.log(tasks)
                                         onClick={() => deleteTasks(tasks._id)}
                                         color='danger'
                                     >Delete</Button>
+                                    <Button
+                                        onClick={() => navigate(`/receipts/add/${tasks._id}`)}
+                                        color='success'
+                                    >Add Receipt</Button>
                                 </td>
                             </tr>
                         ))
