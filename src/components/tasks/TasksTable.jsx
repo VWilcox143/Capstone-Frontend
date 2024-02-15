@@ -59,7 +59,9 @@ console.log(tasks)
                     </tr>
                 </thead>
                 <tbody>
-                    { typeof tasks === "object" && 
+
+                    { typeof tasks === "object" &&
+
                         tasks.map(tasks => (
                             <tr key={tasks._id}>
                                 <th scope='row'>{tasks.Job}</th>
@@ -76,6 +78,10 @@ console.log(tasks)
                                         onClick={() => deleteTasks(tasks._id)}
                                         color='danger'
                                     >Delete</Button>
+                                     <Button
+                                        onClick={() => navigate(`/receipts/add/${tasks._id}`)}
+                                        color='success'
+                                    >Add Receipt</Button>
                                 </td>
                             </tr>
                         ))
