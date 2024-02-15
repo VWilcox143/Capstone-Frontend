@@ -1,28 +1,28 @@
 import React, {useRef} from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { baseURL } from '../../environment'
+import { useParams } from 'react-router-dom';
 
-
-function TaskCreate(props) {
+function ReceiptCreate(props) {
+    const {id}=useParams() // needs to match route
+    console.log(id);
     // console.log(props)
-    const JobRef = useRef()
-    const hoursRef = useRef()
-    const mileageRef = useRef()
-    const contactRef = useRef()
-    const emailRef = useRef()
+    const typeRef = useRef();
+    const dateRef = useRef();
+    const amountRef = useRef();
+    const taskRef = useRef();
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const Job = JobRef.current.value;
-        const hoursWorked = hoursRef.current.value;
-        const mileage = mileageRef.current.value;
-        const contact = contactRef.current.value;
-        const contactEmail = emailRef.current.value;
+        const type = typeRef.current.value
+        const date = dateRef.current.value
+        const amount = amountRef.current.value
+        const task = id
         
         
         let bodyObj = JSON.stringify({
-            Job, hoursWorked, mileage, contact, contactEmail
+            type, date, amount, task
         })
         console.log(bodyObj);
         
@@ -30,9 +30,10 @@ function TaskCreate(props) {
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append('Authorization', props.token)
 
-        const url = `${baseURL}/tasks/tasks`;
+        // const url = `${baseURL}/receipt/`
+        const url = `${baseURL}/receipt/${id}`;
         const headers = new Headers();
-        headers.append("Content-type", "application/json");
+        headers.append("Content-Type", "application/json");
         
         
         const requestOptions = {
@@ -41,7 +42,7 @@ function TaskCreate(props) {
             method: 'POST'
         }
         
-
+        console.log(bodyObj);
         try {
 
             const response = await fetch(url, requestOptions);
@@ -60,49 +61,38 @@ function TaskCreate(props) {
     }
     return (
     <>
-        <h1>Add Task</h1>
+        <h1>Add Receipt</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
-                <Label>Job</Label>
+                <Label>Type</Label>
                 <Input 
-                    innerRef={JobRef}
+                    innerRef={typeRef}
+                    type='string'
                     autoComplete='off'
                 />
             </FormGroup>
             <FormGroup>
-                <Label>Hours Worked</Label>
+                <Label>Date</Label>
+                <Input
+                    format="MM-DD-YYYY" 
+                    innerRef={dateRef}
+                    type='date'
+                    autoComplete='off'
+                    // onChange={this.onChangeHandle}
+                />
+            </FormGroup>
+            <FormGroup>
+                <Label>Amount</Label>
                 <Input 
-                    innerRef={hoursRef}
+                    innerRef={amountRef}
                     type='number'
                     autoComplete='off'
                 />
             </FormGroup>
-            <FormGroup>
-                <Label>Mileage</Label>
-                <Input 
-                    innerRef={mileageRef}
-                    type='number'
-                    autoComplete='off'
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label>Contact</Label>
-                <Input 
-                    innerRef={contactRef}
-                    autoComplete='off'
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label>Email</Label>
-                <Input 
-                    innerRef={emailRef}
-                    autoComplete='off'
-                />
-            </FormGroup>
-                <Button color='success'>Add Task</Button>
+                <Button color='success'>Add Receipt</Button>
         </Form>
     </>
     )
 }
 
-export default TaskCreate
+export default ReceiptCreate
