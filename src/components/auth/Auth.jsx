@@ -35,14 +35,14 @@ export default function Auth(props) {
     }
 
     return (
-      <>
-      <Button onClick = {swapForm}
+    <>
+    <Button onClick = {swapForm}
             color='dark'>
                 {button}
             </Button>
         {displayForm()}
-      </>
+    </>
     )
-  }
+}
 
 
