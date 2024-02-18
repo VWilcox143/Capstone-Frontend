@@ -3,10 +3,10 @@ import './App.css';
 import Auth from './components/auth/Auth';
 import { useState, useEffect  } from 'react';
 import TaskIndex from './components/tasks/TaskIndex'
-// import ReceiptCreate from './components/receipts/'
 import Logout from './components/auth/login/Logout';
-import ReceiptCreate from './components/receipts/ReceiptCreate';
-
+import TaskEdit from './components/tasks/TaskEdit';
+import TaskDetail from './components/tasks/TaskDetail';
+import ReceiptIndex from './components/receipts/ReceiptIndex';
 
 
 function App() {
@@ -43,16 +43,16 @@ function App() {
           element={<TaskIndex token={sessionToken}/>}
         />
         <Route 
-          path='/tasks/update/:id'
-          element={<h1>Hello world</h1>}
-        />
-        {/* <Route 
           path='/receipts/add/:id'
-          element={<ReceiptCreate token={sessionToken}/>}
-        /> */}
+          element={<ReceiptIndex token={sessionToken}/>}
+        /> 
         <Route
         path='/tasks/update/:id'
         element={<TaskEdit token={sessionToken} />}
+        />
+        <Route
+        path='/tasks/task/:id'
+        element={<TaskDetail token={sessionToken} />}
         />
       </Routes>
     </div>
