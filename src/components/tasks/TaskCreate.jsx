@@ -46,13 +46,13 @@ function TaskCreate(props) {
 
             const response = await fetch(url, requestOptions);
             const data = await response.json();
-            props.fetchTasks()
+            props.fetchTask()
 
-            // if(data.message === 'task added to collection') {
-            //     console.log(data)
-            // }else {
-            //     alert(data.message)
-            // }
+            if(data.message === 'task added to collection') {
+                console.log(data)
+            }else {
+                alert(data.message)
+            }
 
         } catch (err) {
             console.error(err.message);
