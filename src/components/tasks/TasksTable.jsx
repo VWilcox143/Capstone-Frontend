@@ -78,9 +78,7 @@ function TasksTable({tasks, token, fetchTasks}) {
                                         onClick={() => deleteTasks(tasks._id)}
                                         color='danger'
                                     >Delete</Button>
-
                                     <Button
-
                                         onClick={() => navigate(`/receipts/add/${tasks._id}`)}
                                         color='success'
                                     >Add Receipt</Button>

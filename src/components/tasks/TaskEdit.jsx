@@ -93,7 +93,7 @@ export default function TaskEdit(props) {
         textDecoration: 'underline'
     }
 
-  return (
+return (
     <>
         <h1 style={style}>Edit Tasks</h1>
         <Container>

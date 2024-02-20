@@ -47,7 +47,7 @@ function ReceiptCreate(props) {
 
             const response = await fetch(url, requestOptions);
             const data = await response.json();
-            props.fetchTasks()
+            props.fetchReceipts();
 
             // if(data.message === 'task added to collection') {
             //     console.log(data)

@@ -6,6 +6,7 @@ import TaskIndex from './components/tasks/TaskIndex'
 // import ReceiptCreate from './components/receipts/'
 import Logout from './components/auth/login/Logout';
 import ReceiptCreate from './components/receipts/ReceiptCreate';
+import TaskEdit from './components/tasks/TaskEdit'
 
 
 
@@ -43,13 +44,9 @@ function App() {
           element={<TaskIndex token={sessionToken}/>}
         />
         <Route 
-          path='/tasks/update/:id'
-          element={<h1>Hello world</h1>}
-        />
-        {/* <Route 
           path='/receipts/add/:id'
-          element={<ReceiptCreate token={sessionToken}/>}
-        /> */}
+          element={<ReceiptCreate token={sessionToken}/>} // change the ReceiptCreate to ReceiptIndex
+        />
         <Route
         path='/tasks/update/:id'
         element={<TaskEdit token={sessionToken} />}
