@@ -1,25 +1,27 @@
 import React, { useEffect, useState}  from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Col, Container, Form, FormGroup, Input, Label, Row, Button } from 'reactstrap';
+import { Col, Container, Form, FormGroup, Input, Label, Row, Button, Table } from 'reactstrap';
 import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
+
 
 export default function TaskEdit(props) {
 
     const { id } = useParams();
 
-
+    const [ tasks, setTasks ] = useState('');
     const [ taskJob, setTaskJob ] = useState('')
     const [ taskHours, setTaskHours ] = useState('')
     const [ taskMileage, setTaskMileage ] = useState('')
     const [ taskContact, setTaskContact ] = useState('')
-    const [ taskEmail, setTaskEmail ] = useState('')
+    const [ taskContactEmail, setTaskContactEmail ] = useState('')
     const navigate = useNavigate();
 
 
 
     const fetchTask = async () => {
         const url = `${baseURL}/tasks/find-one/${id}`;
+        
 
         const requestOptions = {
             method: 'GET',
@@ -32,27 +34,29 @@ export default function TaskEdit(props) {
             
             const res = await fetch(url, requestOptions);
             const data = await res.json();
-            
-            
-            console.log(data);
+            setTasks(data.results);
+
+
             const { job, hours, mileage, contact, contactEmail} = data
 
+            
             setTaskJob(job);
             setTaskHours(hours);
             setTaskMileage(mileage);
             setTaskContact(contact);
-            setTaskEmail(contactEmail);
+            setTaskContactEmail(contactEmail);
 
         } catch (err) {
             console.error(err.message)
         }
-    }
 
+    }
     useEffect(() => {
         if(props.token) {
             fetchTask();
         }
     }, [props.token])
+
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -60,11 +64,11 @@ export default function TaskEdit(props) {
         const url = `${baseURL}/tasks/${id}`;
 
         let body = JSON.stringify({
-            job: taskJob,
-            hours: taskHours,
+            Job: taskJob,
+            hoursWorked: taskHours,
             mileage: taskMileage,
             contact: taskContact,
-            contactEmail: taskEmail
+            contactEmail: taskContactEmail
         })
 
         const requestOptions = {
@@ -80,12 +84,17 @@ export default function TaskEdit(props) {
 
             const res = await fetch(url, requestOptions);
             const data = await res.json(); 
+            fetchTask();
+
+
             
             if(data) fetchTask();
 
     } catch (err) {
         console.error(err.message)
     }
+    navigate('/tasks');
+
     }
 
     const style = {
@@ -93,44 +102,70 @@ export default function TaskEdit(props) {
         textDecoration: 'underline'
     }
 
-return (
+    useEffect(() => {
+        fetchTask();
+      }, [props.token]);
+
+  return (
     <>
-        <h1 style={style}>Edit Tasks</h1>
+        <h1 style={style}>Edit Task</h1>
         <Container>
             <Row>
                 <Col md="4">
-                    <h2>Expenses for Job</h2>
-                        <Col md="8">
-                        <thead>
-                    <tc>
+                <Table striped>
+                    <thead>
                         <tr>
-                            <Label>
-                            <h5>Job:</h5> 
-                            </Label>
+                        <th>
+                            Field
+                        </th>
+                        <th>
+                            Current Value
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">
+                            Job:
+                        </th>
+                        <td> 
+                            {tasks.Job}
+                        </td>
                         </tr>
                         <tr>
-                            <Label>
-                            <h5>Hours:</h5>
-                            </Label>
+                        <th scope="row">
+                            Hours:
+                        </th>
+                        <td>
+                            {tasks.hoursWorked}
+                        </td>
                         </tr>
                         <tr>
-                            <Label>
-                            <h5>Mileage</h5>
-                            </Label>
+                        <th scope="row">
+                            Mileage
+                        </th>
+                        <td>
+                            {tasks.mileage}
+                        </td>
                         </tr>
                         <tr>
-                            <Label>
-                            <h5>Contact</h5>
-                            </Label>
+                        <th scope="row">
+                            Contact
+                        </th>
+                        <td>
+                            {tasks.contact}
+                        </td>
                         </tr>
                         <tr>
-                            <Label>
-                            <h5>Contact E-mail</h5>
-                            </Label>
+                        <th scope="row">
+                            Contact E-mail
+                        </th>
+                        <td>
+                            {tasks.contactEmail}
+                        </td>
                         </tr>
-                    </tc>
-                </thead>
-                        </Col>
+                    </tbody>
+                    </Table>
                     <FullButtons>
                         <Button color='info'
                         outline
@@ -156,7 +191,6 @@ return (
                             value={taskHours}
                             onChange={e => setTaskHours(e.target.value)}
                             autoComplete = 'off'>
-                                
                             </Input>
                         </FormGroup>
                         <FormGroup>
@@ -166,8 +200,8 @@ return (
                             <Input 
                             value={taskMileage}
                             onChange={e => setTaskMileage(e.target.value)}
-                            autoComplete = 'off'>
-                            </Input>
+                            autoComplete = 'off'
+                            ></Input>
                         </FormGroup>
                         
                         <FormGroup>
@@ -184,10 +218,10 @@ return (
                                 Contact E-mail
                             </Label>
                             <Input 
-                            value={taskEmail}
-                            onChange={e => setTaskEmail(e.target.value)}
-                            autoComplete = 'off'>
-                            </Input>
+                            value={taskContactEmail}
+                            onChange={e => setTaskContactEmail(e.target.value)}
+                            autoComplete = 'off' />
+                            
                         </FormGroup>
                         <FullButtons>
                             <Button color='success'>Update</Button>

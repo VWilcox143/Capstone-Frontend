@@ -3,7 +3,8 @@ import { Button, Table } from 'reactstrap'
 import { baseURL } from '../../environment'
 import { useNavigate } from 'react-router-dom';
 
-function TasksTable({tasks, token, fetchTasks}) {
+
+function TasksTable({tasks, token, fetchTask}) {
     // console.log(tasks)
 
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ function TasksTable({tasks, token, fetchTasks}) {
             let data = await response.json();
 
             if(data) {
-                fetchTasks();
+                fetchTask();
             }
             
         } catch (err) {
@@ -54,7 +55,13 @@ function TasksTable({tasks, token, fetchTasks}) {
                             Contact Email
                         </th>
                         <th>
-                            Edit / Delete
+                            Add Receipt
+                        </th>
+                        <th>
+                            Edit
+                        </th>
+                        <th>
+                            Delete
                         </th>
                     </tr>
                 </thead>
@@ -63,25 +70,37 @@ function TasksTable({tasks, token, fetchTasks}) {
                     { typeof tasks === "object" &&
 
                         tasks.map(tasks => (
-                            <tr key={tasks._id}>
-                                <th scope='row'>{tasks.Job}</th>
+                            <tr key={tasks._id}
+                            onClick={() => navigate(`/tasks/task/${tasks._id}`)}>
+                                <th scope='row'
+                                >{tasks.Job}</th>
                                 <td>{tasks.hoursWorked}</td>
                                 <td>{tasks.mileage}</td>
                                 <td>{tasks.contact}</td>
                                 <td>{tasks.contactEmail}</td>
                                 <td>
                                     <Button
-                                        onClick={() => navigate(`/tasks/update/${tasks._id}`)}
-                                        color='warning'
-                                    >Edit</Button>
-                                    <Button
-                                        onClick={() => deleteTasks(tasks._id)}
-                                        color='danger'
-                                    >Delete</Button>
-                                    <Button
-                                        onClick={() => navigate(`/receipts/add/${tasks._id}`)}
+                                        onClick={(event) => {
+                                            event.stopPropagation()
+                                            navigate(`/receipts/add/${tasks._id}`)}}
                                         color='success'
                                     >Add Receipt</Button>
+                                </td>
+                                <td>
+                                    <Button
+                                        onClick={(event) => {
+                                            event.stopPropagation()
+                                            navigate(`/tasks/update/${tasks._id}`)}}
+                                        color='warning'
+                                    >Edit</Button>
+                                </td>
+                                <td>
+                                    <Button
+                                        onClick={(event) => { 
+                                            event.stopPropagation()
+                                            deleteTasks(tasks._id)}}
+                                        color='danger'
+                                    >Delete</Button>
                                 </td>
                             </tr>
                         ))

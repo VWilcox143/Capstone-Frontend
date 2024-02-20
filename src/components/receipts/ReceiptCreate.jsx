@@ -1,17 +1,16 @@
 import React, {useRef} from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { baseURL } from '../../environment'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function ReceiptCreate(props) {
     const {id}=useParams() // needs to match route
-    console.log(id);
     // console.log(props)
     const typeRef = useRef();
     const dateRef = useRef();
     const amountRef = useRef();
-    const taskRef = useRef();
-    
+    // const taskRef = useRef();
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,7 +23,7 @@ function ReceiptCreate(props) {
         let bodyObj = JSON.stringify({
             type, date, amount, task
         })
-        console.log(bodyObj);
+
         
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -42,18 +41,18 @@ function ReceiptCreate(props) {
             method: 'POST'
         }
         
-        console.log(bodyObj);
+
         try {
 
             const response = await fetch(url, requestOptions);
             const data = await response.json();
-            props.fetchReceipts();
+            props.fetchTasks()
 
-            // if(data.message === 'task added to collection') {
-            //     console.log(data)
-            // }else {
-            //     alert(data.message)
-            // }
+            if(data.message === `Receipt Created:`) {
+                console.log(data)
+            }else {
+                alert(data.message)
+            }
 
         } catch (err) {
             console.error(err.message);
@@ -90,6 +89,9 @@ function ReceiptCreate(props) {
                 />
             </FormGroup>
                 <Button color='success'>Add Receipt</Button>
+                <Button color='info'
+                        outline
+                        onClick={() => navigate('/tasks')}>Back to Table</Button>
         </Form>
     </>
     )
