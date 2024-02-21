@@ -1,11 +1,13 @@
 import React from 'react'
 import { Button, Table } from 'reactstrap'
 import { baseURL } from '../../environment'
-import { useNavigate } from 'react-router-dom';
+import {useParams, useNavigate } from 'react-router-dom';
 
 
 function TasksTable({tasks, token, fetchTask}) {
     // console.log(tasks)
+
+    
 
     const navigate = useNavigate();
 

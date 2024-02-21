@@ -104,9 +104,9 @@ export default function TaskEdit(props) {
 
     useEffect(() => {
         fetchTask();
-      }, [props.token]);
+        }, [props.token]);
 
-  return (
+    return (
     <>
         <h1 style={style}>Edit Task</h1>
         <Container>
@@ -231,5 +231,5 @@ export default function TaskEdit(props) {
             </Row>
         </Container>
     </>
-  )
+    )
 }
