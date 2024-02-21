@@ -4,8 +4,9 @@ import { baseURL } from '../../environment'
 import {useParams, useNavigate } from 'react-router-dom';
 
 
+
 function TasksTable({tasks, token, fetchTask}) {
-    // console.log(tasks)
+
 
     
 
@@ -34,10 +35,10 @@ function TasksTable({tasks, token, fetchTask}) {
             console.error(err.message);
         }
     }
-// console.log(tasks)
+
     return (
         <>
-            <h1>Task List</h1>
+            <h1> Task List</h1>
             <Table hover striped>
                 <thead>
                     <tr>
@@ -73,7 +74,7 @@ function TasksTable({tasks, token, fetchTask}) {
 
                         tasks.map(tasks => (
                             <tr key={tasks._id}
-                            onClick={() => navigate(`/tasks/task/${tasks._id}`)}>
+                            onClick={() => navigate(`/tasks/tasks/${tasks._id}`)}>
                                 <th scope='row'
                                 >{tasks.Job}</th>
                                 <td>{tasks.hoursWorked}</td>

@@ -52,11 +52,12 @@ function App() {
         element={<TaskEdit token={sessionToken} />}
         />
         <Route
+
         path='/receipts/update/:id'
         element={<ReceiptEdit token={sessionToken} />}
         />
         <Route
-        path='/tasks/task/:id'
+        path='/tasks/tasks/:id'
         element={<TaskDetail token={sessionToken} />}
         />
       </Routes>
