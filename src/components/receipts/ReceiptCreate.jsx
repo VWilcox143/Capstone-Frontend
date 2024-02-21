@@ -46,7 +46,7 @@ function ReceiptCreate(props) {
 
             const response = await fetch(url, requestOptions);
             const data = await response.json();
-            props.fetchReceipts(); 
+            props.fetchReceipts()
 
             if(data.message === `Receipt Created:`) {
                 console.log(data)
