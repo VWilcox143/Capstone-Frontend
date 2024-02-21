@@ -4,11 +4,12 @@ import { Col, Container, Row } from 'reactstrap'
 import TasksTable from './TasksTable'
 import { baseURL } from '../../environment'
 
+
 function TaskIndex(props) {
 
     const [ tasks, setTasks ] = useState([]);
 
-    const fetchTasks = async () => {
+    const fetchTask = async () => {
         const url = `${baseURL}/tasks`;
 
         const requestOptions = {
@@ -31,7 +32,7 @@ function TaskIndex(props) {
 
     useEffect(() => {
         if(props.token) {
-            fetchTasks();
+            fetchTask();
         }
     },[props.token])
 
@@ -42,12 +43,12 @@ function TaskIndex(props) {
                     <Col md='4'>
                         <TaskCreate 
                         token={props.token} 
-                        fetchTasks={fetchTasks} />
+                        fetchTask={fetchTask} />
                     </Col>
                     <Col md='8'>
                         <TasksTable 
                             token={props.token}
-                            fetchTasks={fetchTasks}
+                            fetchTask={fetchTask}
                             tasks={tasks}/>
                     </Col> 
                 </Row>
