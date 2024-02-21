@@ -2,10 +2,11 @@ import React from 'react'
 // import { useNavigate } from 'react-router-dom'
 import { baseURL } from '../../environment';
 import { Button, Table } from 'reactstrap';
+import { useNavigate } from 'react-router-dom';
 
 function ReceiptsTable({tasks, receipts, token, fetchReceipts}) {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     async function deleteReceipts(id) {
         const url = `${baseURL}/receipt/${id}`;
@@ -55,11 +56,17 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipts}) {
                                 <td>{receipts.date}</td>
                                 <td>{receipts.amount}</td>
                                 <td>
+                                    <Button
+                                        onClick={(event) => {
+                                            event.stopPropagation()
+                                            navigate(`/tasks/update/${tasks._id}`)}}
+                                        color='warning'
+                                    >Edit</Button>
+                                </td>
                                 <Button
                                         onClick={() => deleteReceipts(tasks._id)}
                                         color='danger'
                                     >Delete</Button>
-                                </td>
                             </tr>
                         ))
                     }

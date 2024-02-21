@@ -5,6 +5,7 @@ import { useState, useEffect  } from 'react';
 import TaskIndex from './components/tasks/TaskIndex'
 import Logout from './components/auth/login/Logout';
 import TaskEdit from './components/tasks/TaskEdit';
+import ReceiptEdit from './components/receipts/ReceiptEdit';
 import TaskDetail from './components/tasks/TaskDetail';
 import ReceiptIndex from './components/receipts/ReceiptIndex';
 
@@ -49,6 +50,11 @@ function App() {
         <Route
         path='/tasks/update/:id'
         element={<TaskEdit token={sessionToken} />}
+        />
+        <Route
+
+        path='/receipts/update/:id'
+        element={<ReceiptEdit token={sessionToken} />}
         />
         <Route
         path='/tasks/tasks/:id'
