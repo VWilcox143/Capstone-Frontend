@@ -9,6 +9,7 @@ export default function TaskEdit(props) {
 
     const { id } = useParams();
 
+
     const [ tasks, setTasks ] = useState('');
     const [ taskJob, setTaskJob ] = useState('')
     const [ taskHours, setTaskHours ] = useState('')
@@ -104,9 +105,9 @@ export default function TaskEdit(props) {
 
     useEffect(() => {
         fetchTask();
-      }, [props.token]);
+        }, [props.token]);
 
-  return (
+    return (
     <>
         <h1 style={style}>Edit Task</h1>
         <Container>
@@ -231,5 +232,5 @@ export default function TaskEdit(props) {
             </Row>
         </Container>
     </>
-  )
+    )
 }
