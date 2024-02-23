@@ -98,7 +98,7 @@ setUser(tempUser)}, [])
                                             event.stopPropagation()
                                             navigate(`/tasks/update/${tasks._id}`)}}
                                         color='warning'
-                                    >Edit</Button>
+                                    >Update</Button>
                                 </td>
                                 <td>
                                     <Button

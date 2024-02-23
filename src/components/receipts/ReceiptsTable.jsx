@@ -34,7 +34,7 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
     return (
         <>
             <h1>Receipts</h1>
-            <Table>
+            <Table hover striped>
             <thead>
                     <tr>
                         <th>
