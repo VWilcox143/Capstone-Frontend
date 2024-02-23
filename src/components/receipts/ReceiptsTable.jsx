@@ -1,10 +1,9 @@
 import React from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { baseURL } from '../../environment';
 import { Button, Table } from 'reactstrap';
-import { useNavigate } from 'react-router-dom';
 
-function ReceiptsTable({receipts, token, fetchReceipts}) {
+function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
 
     const navigate = useNavigate();
 
@@ -17,13 +16,14 @@ function ReceiptsTable({receipts, token, fetchReceipts}) {
             }),
             method: 'DELETE'
         }
+
         try {
 
             let response = await fetch(url, requestOptions);
             let data = await response.json();
 
             if(data) {
-                fetchReceipts();
+                fetchReceipt();
             }
         } catch (err) {
             console.error(err.message);

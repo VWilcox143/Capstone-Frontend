@@ -32,6 +32,7 @@ function Login({updateToken}) {
 
             const data = await response.json();
             console.log(data.results);
+            localStorage.setItem("userName", data.results.user.firstName)
 
             if(data.results.message === 'Login Successful') {
                 updateToken(data.results.token)
