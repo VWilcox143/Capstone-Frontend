@@ -4,12 +4,12 @@ import { baseURL } from '../../environment';
 import { Button, Table } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
 
-function ReceiptsTable({tasks, receipts, token, fetchReceipts}) {
+function ReceiptsTable({receipts, token, fetchReceipts}) {
 
     const navigate = useNavigate();
 
     async function deleteReceipts(id) {
-        const url = `${baseURL}/receipt/${id}`;
+        const url = `${baseURL}/receipts/${id}`;
 
         let requestOptions = {
             headers: new Headers({
@@ -57,7 +57,7 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipts}) {
                                 <td>{receipts.amount}</td>
                                 <td>
                                 <Button
-                                        onClick={() => deleteReceipts(tasks._id)}
+                                        onClick={() => deleteReceipts(receipts._id)}
                                         color='danger'
                                     >Delete</Button>
                                 </td>
@@ -65,14 +65,10 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipts}) {
                                     <Button
                                         onClick={(event) => {
                                             event.stopPropagation()
-                                            navigate(`/tasks/update/${tasks._id}`)}}
+                                            navigate(`/receipts/update/${receipts._id}`)}}
                                         color='warning'
                                     >Edit</Button>
                                 </td>
-                                    <Button
-                                        onClick={() => deleteReceipts(tasks._id)}
-                                        color='danger'
-                                    >Delete</Button>
                             </tr>
                         ))
                     }
