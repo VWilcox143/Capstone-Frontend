@@ -1,9 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { baseURL } from '../../environment';
 import { Button, Table } from 'reactstrap';
-import { useNavigate } from 'react-router-dom';
 
-function ReceiptsTable({ receipts, token, fetchReceipt}) {
+function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
 
     const navigate = useNavigate();
 
@@ -16,6 +16,7 @@ function ReceiptsTable({ receipts, token, fetchReceipt}) {
             }),
             method: 'DELETE'
         }
+
         try {
 
             let response = await fetch(url, requestOptions);
@@ -33,7 +34,7 @@ function ReceiptsTable({ receipts, token, fetchReceipt}) {
     return (
         <>
             <h1>Receipts</h1>
-            <Table>
+            <Table hover striped>
             <thead>
                     <tr>
                         <th>
@@ -59,7 +60,7 @@ function ReceiptsTable({ receipts, token, fetchReceipt}) {
                                         onClick={() => deleteReceipts(receipts._id)}
                                         color='danger'
                                     >Delete</Button>
-                                    </td>
+                                </td>
                                 <td>
                                     <Button
                                         onClick={(event) => {

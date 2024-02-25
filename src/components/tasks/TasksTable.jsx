@@ -1,13 +1,16 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { Button, Table } from 'reactstrap'
 import { baseURL } from '../../environment'
-import {useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function TasksTable({tasks, token, fetchTask}) {
 
+    const [ user, setUser ] = useState('');
 
+useEffect(() => {let tempUser = localStorage.getItem("userName")
+setUser(tempUser)}, [])
     
 
     const navigate = useNavigate();
@@ -38,7 +41,7 @@ function TasksTable({tasks, token, fetchTask}) {
 
     return (
         <>
-            <h1> Task List</h1>
+            <h1> Task List {user}</h1>
             <Table hover striped>
                 <thead>
                     <tr>
@@ -95,7 +98,7 @@ function TasksTable({tasks, token, fetchTask}) {
                                             event.stopPropagation()
                                             navigate(`/tasks/update/${tasks._id}`)}}
                                         color='warning'
-                                    >Edit</Button>
+                                    >Update</Button>
                                 </td>
                                 <td>
                                     <Button

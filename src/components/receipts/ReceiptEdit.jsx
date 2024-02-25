@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { baseURL } from '../../environment';
-import {Form, Button, Col, Container, FormGroup, Input, Label, Row, Table } from 'reactstrap';
+import { Form, Button, Col, Container, FormGroup, Input, Label, Row, Table } from 'reactstrap';
 import FullButtons from '../buttons/FullButtons';
 
 export default function ReceiptEdit(props) {
@@ -15,7 +15,7 @@ export default function ReceiptEdit(props) {
     const navigate = useNavigate();
 
     const fetchReceipt = async () => {
-        const url = `${baseURL}/receipts/find-one/${id}`;
+        const url = `${baseURL}/receipt/find-one/${id}`;
 
         const requestOptions = {
             method: 'GET',
@@ -29,13 +29,13 @@ export default function ReceiptEdit(props) {
             const res = await fetch(url, requestOptions);
             const data = await res.json();
             setReceipt(data.results);
-
-            const {type, date, amount,} = data
-
+console.log(data.results)
+            const {type, date, amount} = data
+            
+            console.log(data)
             setReceiptType(type);
             setReceiptDate(date);
             setReceiptAmount(amount);
-            
         } catch (err) {
             console.error(err.message)
         }
@@ -49,7 +49,7 @@ export default function ReceiptEdit(props) {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const url = `${baseURL}/receipts/${id}`;
+        const url = `${baseURL}/receipt/${id}`;
 
         let body = JSON.stringify({
             type: receiptType,
@@ -78,7 +78,7 @@ export default function ReceiptEdit(props) {
         } catch (err) {
             console.error(err.message)
         }
-        navigate('/receipts'); //ask if this needs to be /receipt or /tasks?
+        navigate(`/receipts/add/${receipt.task_id}`)
 
     }
 
@@ -138,7 +138,7 @@ export default function ReceiptEdit(props) {
                 <FullButtons>
                     <Button color='info'
                     outline
-                    onClick={() => navigate('/receipts')}>back to Table</Button> 
+                    onClick={() => navigate(`/receipts/add/${receipt.task_id}`)}>Back to Table</Button> 
                 </FullButtons>
             </Col>
             <Col>
