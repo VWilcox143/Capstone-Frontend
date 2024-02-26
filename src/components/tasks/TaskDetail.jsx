@@ -5,6 +5,7 @@ import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
 import ReceiptCreate from '../receipts/ReceiptCreate';
 import ReceiptsTable from '../receipts/ReceiptsTable';
+import '../../App'
 
 export default function TaskDetail(props) {
 const { id } = useParams();
