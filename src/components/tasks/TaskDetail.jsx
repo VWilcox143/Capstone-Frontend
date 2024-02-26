@@ -1,6 +1,6 @@
 import React, { useEffect, useState}  from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Col, Container, Form, FormGroup, Input, Label, Row, Button, Table } from 'reactstrap';
+import { Col, Container, Row, Button, Table, UncontrolledAccordion, AccordionItem, AccordionHeader, AccordionBody } from 'reactstrap';
 import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
 import ReceiptCreate from '../receipts/ReceiptCreate';
@@ -73,9 +73,19 @@ const fetchTask = async () => {
 return (
 <>
     <h2>{tasks.Job}</h2>
-        <Container>
-            <Row>
-            <Col md="10" >
+
+    <UncontrolledAccordion
+  defaultOpen={[
+    '1',
+    '2'
+  ]}
+  stayOpen
+>
+  <AccordionItem>
+    <AccordionHeader targetId="1">
+        <Container className='container' >
+        <Row>
+            <Col  >
                 <Table hover striped
                 >
                 <thead>
@@ -95,6 +105,12 @@ return (
                         <th>
                             Contact Email
                         </th>
+                        <th>
+                            Pay Rate
+                        </th>
+                        <th>
+                            Tax Rate
+                        </th>
 
                     </tr>
                 </thead>
@@ -105,32 +121,33 @@ return (
                         <td>{tasks.mileage}</td>
                         <td>{tasks.contact}</td>
                         <td>{tasks.contactEmail}</td>
+                        <td>{tasks.payRate}</td>
+                        <td>{tasks.taxRate}</td>
                 </tr>
                 </tbody>
                 </Table>
                 </Col>
             </Row>
-            
-        <Row>
-            {/* <Col md='4'>
-                <ReceiptCreate
-                token = {props.token}
-                fetchReceipts= {fetchReceipts} />
-            </Col> */}
-            <Col md='10'>
-                <ReceiptsTable
+            </Container>
+    </AccordionHeader>
+    <AccordionBody accordionId="1">
+<Container>
+    <Row>
+        <Col>
+        <ReceiptsTable
                 token= {props.token}
                 fetchReceipt= {fetchReceipts}
                 receipts={receipt} />
-            <FullButtons>
-                    <Button  color='info'
-                    outline
-                    onClick={() => navigate('/tasks')}>Back to Table</Button>
-                </FullButtons>
-            </Col>
-        </Row>
+        </Col>
+    </Row>
+</Container>
+    </AccordionBody>
+  </AccordionItem>
 
-        </Container>
+</UncontrolledAccordion>
+<Button color='info'
+                        outline
+                        onClick={() => navigate('/tasks')}>Back to Table</Button>
 </>
 )
 }

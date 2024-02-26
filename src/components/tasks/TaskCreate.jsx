@@ -11,6 +11,8 @@ export default function TaskCreate(props) {
     const mileageRef = useRef()
     const contactRef = useRef()
     const emailRef = useRef()
+    const payRef = useRef()
+    const taxRef = useRef()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,10 +22,12 @@ export default function TaskCreate(props) {
         const mileage = mileageRef.current.value;
         const contact = contactRef.current.value;
         const contactEmail = emailRef.current.value;
+        const payRate = payRef.current.value;
+        const taxRate = taxRef.current.value
         
         
         let bodyObj = JSON.stringify({
-            Job, hoursWorked, mileage, contact, contactEmail
+            Job, hoursWorked, mileage, contact, contactEmail, payRate, taxRate
         })
         console.log(bodyObj);
         
@@ -61,7 +65,7 @@ export default function TaskCreate(props) {
     }
     return (
     <>
-        <h1>Add Task</h1>
+        <h1>Add Job</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Job</Label>
@@ -98,6 +102,16 @@ export default function TaskCreate(props) {
                 <Label>Email</Label>
                 <Input 
                     innerRef={emailRef}
+                    autoComplete='off'
+                />
+                <Label>Pay Rate</Label>
+                <Input 
+                    innerRef={payRef}
+                    autoComplete='off'
+                />
+                <Label>Tax Rate</Label>
+                <Input 
+                    innerRef={taxRef}
                     autoComplete='off'
                 />
             </FormGroup>

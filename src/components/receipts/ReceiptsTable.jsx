@@ -46,6 +46,12 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
                         <th>
                             Amount
                         </th>
+                        <th>
+                            Delete
+                        </th>
+                        <th>
+                            Edit
+                        </th>
                     </tr>
                 </thead>
                     <tbody>
