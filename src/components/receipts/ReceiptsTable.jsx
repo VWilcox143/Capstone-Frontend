@@ -69,7 +69,6 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
                                         color='warning'
                                     >Edit</Button>
                                 </td>
-
                             </tr>
                         ))
                     }
