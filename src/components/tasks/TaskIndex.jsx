@@ -3,6 +3,7 @@ import TaskCreate from './TaskCreate'
 import { Col, Container, Row } from 'reactstrap'
 import TasksTable from './TasksTable'
 import { baseURL } from '../../environment'
+import '../../App.css'
 
 
 function TaskIndex(props) {
@@ -38,7 +39,7 @@ function TaskIndex(props) {
 
     return (
         <>
-            <Container>
+            <Container className='taskIndex'>
                 <Row>
                     <Col md='4'>
                         <TaskCreate 

@@ -76,7 +76,7 @@ return (
     <h2>{tasks.Job}</h2>
         <Container>
             <Row>
-            <Col md="10" >
+              <Col md="10">
                 <Table hover striped
                 >
                 <thead>
