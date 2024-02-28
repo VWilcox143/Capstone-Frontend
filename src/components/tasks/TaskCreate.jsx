@@ -1,6 +1,7 @@
 import React, {useRef} from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { baseURL } from '../../environment'
+import '../../Tailwind.css'
 
 
 function TaskCreate(props) {
@@ -61,6 +62,7 @@ function TaskCreate(props) {
     return (
     <>
         <h1 className="addTask">Add Task</h1>
+        {/* <h1 className="bg-green-700">Add Task</h1> */}
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Job</Label>
