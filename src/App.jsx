@@ -53,7 +53,6 @@ function App() {
         element={<TaskEdit token={sessionToken} />}
         />
         <Route
-
         path='/receipts/update/:id'
         element={<ReceiptEdit token={sessionToken} />}
         />
