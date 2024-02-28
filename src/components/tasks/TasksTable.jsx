@@ -4,7 +4,6 @@ import { baseURL } from '../../environment'
 import { useNavigate } from 'react-router-dom';
 
 
-
 function TasksTable({tasks, token, fetchTask}) {
 
     const [ user, setUser ] = useState('');
@@ -41,7 +40,7 @@ setUser(tempUser)}, [])
 
     return (
         <>
-            <h1> Job List for {user}</h1>
+            <h1 className='taskList'> Job List for {user}</h1>
             <Table hover striped>
                 <thead>
                     <tr>
@@ -84,7 +83,7 @@ setUser(tempUser)}, [])
                             onClick={() => navigate(`/tasks/tasks/${tasks._id}`)}>
                                 <th scope='row'
                                 >{tasks.Job}</th>
-                                <td>{tasks.hoursWorked}</td>
+                                <td>{tasks.hoursWorked} </td>
                                 <td>{tasks.mileage}</td>
                                 <td>{tasks.contact}</td>
                                 <td>{tasks.contactEmail}</td>

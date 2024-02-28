@@ -3,25 +3,27 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { baseURL } from '../../environment'
 import { useParams, useNavigate } from 'react-router-dom';
 
-function ReceiptCreate(props) {
+export default function SubTaskCreate(props) {
     const {id}=useParams() // needs to match route
     // console.log(props)
-    const typeRef = useRef();
+    const JobRef = useRef();
     const dateRef = useRef();
-    const amountRef = useRef();
+    const hoursWorkedRef = useRef();
+    const mileageRef = useRef()
     // const taskRef = useRef();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const type = typeRef.current.value
+        const Job = JobRef.current.value
         const date = dateRef.current.value
-        const amount = amountRef.current.value
+        const hoursWorked = hoursWorkedRef.current.value
+        const mileage = mileageRef.current.value
         const task = id
         
         
         let bodyObj = JSON.stringify({
-            type, date, amount, task
+            Job, date, hoursWorked, mileage, task
         })
 
         
@@ -30,7 +32,7 @@ function ReceiptCreate(props) {
         myHeaders.append('Authorization', props.token)
 
         // const url = `${baseURL}/receipt/`
-        const url = `${baseURL}/receipt/${id}`;
+        const url = `${baseURL}/subTask/${id}`;
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
         
@@ -46,12 +48,12 @@ function ReceiptCreate(props) {
 
             const response = await fetch(url, requestOptions);
             const data = await response.json();
-            props.fetchReceipts()
+            props.fetchSubTask()
 
-            if(data.message === `Receipt Created:`) {
+            if(data.message === `Entry Created:`) {
                 console.log(data)
             }else {
-                alert(data.message)
+                // alert(data.message)
             }
 
         } catch (err) {
@@ -60,19 +62,11 @@ function ReceiptCreate(props) {
     }
     return (
     <>
-        <h1>Add Receipt</h1>
+        <h1>Add Entry</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
-                <Label>Type</Label>
-                <Input 
-                    innerRef={typeRef}
-                    type='string'
-                    autoComplete='off'
-                />
-            </FormGroup>
-            <FormGroup>
                 <Label>Date</Label>
-                <Input
+                <Input 
                     format="MM-DD-YYYY" 
                     innerRef={dateRef}
                     type='date'
@@ -81,14 +75,32 @@ function ReceiptCreate(props) {
                 />
             </FormGroup>
             <FormGroup>
-                <Label>Amount</Label>
+                <Label>Job</Label>
+                <Input
+                    format="MM-DD-YYYY" 
+                    innerRef={JobRef}
+                    type='string'
+                    autoComplete='off'
+                    // onChange={this.onChangeHandle}
+                />
+            </FormGroup>
+            <FormGroup>
+                <Label>Hours</Label>
                 <Input 
-                    innerRef={amountRef}
+                    innerRef={hoursWorkedRef}
                     type='number'
                     autoComplete='off'
                 />
             </FormGroup>
-                <Button color='success'>Add Receipt</Button>
+            <FormGroup>
+                <Label>Mileage</Label>
+                <Input 
+                    innerRef={mileageRef}
+                    type='number'
+                    autoComplete='off'
+                />
+            </FormGroup>
+                <Button color='success'>Add Entry</Button>
                 <Button color='info'
                         outline
                         onClick={() => navigate('/tasks')}>Back to Table</Button>
@@ -97,4 +109,3 @@ function ReceiptCreate(props) {
     )
 }
 
-export default ReceiptCreate
