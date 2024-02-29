@@ -3,7 +3,9 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { baseURL } from '../../environment'
 import { useParams, useNavigate } from 'react-router-dom';
 
+
 function ReceiptCreate(props) {
+    
     const {id}=useParams() // needs to match route
     // console.log(props)
     const typeRef = useRef();
@@ -60,7 +62,7 @@ function ReceiptCreate(props) {
     }
     return (
     <>
-        <h1>Add Receipt</h1>
+        <h1 className="add-receipt">Add Receipt</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Type</Label>

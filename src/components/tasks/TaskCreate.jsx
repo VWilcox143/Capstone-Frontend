@@ -1,9 +1,10 @@
 import React, {useRef} from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { baseURL } from '../../environment'
+import { Navigate } from 'react-router-dom'
 
 
-function TaskCreate(props) {
+export default function TaskCreate(props) {
     // console.log(props)
     const JobRef = useRef()
     const hoursRef = useRef()
@@ -49,7 +50,7 @@ function TaskCreate(props) {
             props.fetchTask()
 
             if(data.message === 'task added to collection') {
-                console.log(data)
+                
             }else {
                 alert(data.message)
             }
@@ -60,7 +61,7 @@ function TaskCreate(props) {
     }
     return (
     <>
-        <h1>Add Task</h1>
+        <h1 className="addTask">Add Task</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Job</Label>
@@ -106,4 +107,3 @@ function TaskCreate(props) {
     )
 }
 
-export default TaskCreate

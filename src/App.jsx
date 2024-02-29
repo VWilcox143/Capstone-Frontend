@@ -10,6 +10,7 @@ import TaskDetail from './components/tasks/TaskDetail';
 import ReceiptIndex from './components/receipts/ReceiptIndex';
 
 
+
 function App() {
 
   const [ sessionToken, setSessionToken ] = useState('');
@@ -39,7 +40,7 @@ function App() {
           path='/'
           element={<Auth updateToken={updateToken}/>}
         />
-        <Route 
+        <Route
           path='/tasks'
           element={<TaskIndex token={sessionToken}/>}
         />
@@ -52,7 +53,6 @@ function App() {
         element={<TaskEdit token={sessionToken} />}
         />
         <Route
-
         path='/receipts/update/:id'
         element={<ReceiptEdit token={sessionToken} />}
         />
