@@ -1,0 +1,129 @@
+/* ! .addTask applies to the addTask title. Entire thing added. */
+.addTask {
+  display: flex;
+  color: #2cd4b2;
+  padding-top: 7px;
+  padding-bottom: 10px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+  font-weight: 600;
+  font-style: oblique;
+  /* padding-top: 30px; */
+  font-size: 30px;
+  text-shadow: 1px, 1px black;
+} 
+
+.taskList {
+  display: flex;
+  /* color: #2cd4b2; */
+  color: #2cd4b2;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-style: oblique;
+  font-size: 30px;
+  padding-top: 7px;
+  padding-bottom: 20px ;
+  text-shadow: 1px, 1px black;
+} 
+
+/* input field color: #fffcc8 */
+
+/* container that holds the add task and task list, added all of this styling */
+.IndexColumn>tr>th {
+  background-color: #1aad90;
+  font-size: 15px;
+  color: rgb(23, 65, 86);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.IndexColumn>tr {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 30px;
+  text-decoration:wavy;
+  /* border-color: rgb(23, 65, 86); */
+}
+
+.Box-Container {
+  /* border: 1px solid rgb(23, 65, 86); */
+  padding-top: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  border-color: rgb(23, 65, 86); 
+  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
+  fill-opacity: 10;
+  height: 80vh;
+  box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
+  margin-bottom: 100px;
+}
+
+.taskIndex {
+  /* padding-top: 30px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  border-color: rgb(23, 65, 86);
+  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
+  fill-opacity: 10;
+  height: 90vh; */
+}
+
+/* ! .App controls the words above the input fields. Added font-size* and height */
+.App {
+  /* display:flex; */
+  padding-top: 10px;
+  padding-bottom: 20px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  /* text-shadow: 1.5px 1.5px black; */
+  font-size: 12px;
+  font-weight: lighter;
+  /* color: rgb(9, 74, 36); */
+  color: whitesmoke;
+  font-size:medium; 
+  text-align:left;
+  background: linear-gradient(to bottom, #23c884, #1aad90);
+  /* height: 100vh; */
+  position: relative;
+  min-height: 100vh;
+}
+
+.logoHeader {
+  display: block;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  font-size: small;
+  /* background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white; */
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
