@@ -8,6 +8,8 @@ import TaskEdit from './components/tasks/TaskEdit';
 import ReceiptEdit from './components/receipts/ReceiptEdit';
 import TaskDetail from './components/tasks/TaskDetail';
 import ReceiptIndex from './components/receipts/ReceiptIndex';
+// import './Tailwind.css';
+
 
 
 function App() {
@@ -29,7 +31,8 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" >
+      {/* //  <div className="border-solid">  */}
       {
         sessionToken !== '' ?
         <Logout setToken={setSessionToken}/> : null
@@ -39,7 +42,7 @@ function App() {
           path='/'
           element={<Auth updateToken={updateToken}/>}
         />
-        <Route 
+        <Route
           path='/tasks'
           element={<TaskIndex token={sessionToken}/>}
         />
@@ -52,7 +55,6 @@ function App() {
         element={<TaskEdit token={sessionToken} />}
         />
         <Route
-
         path='/receipts/update/:id'
         element={<ReceiptEdit token={sessionToken} />}
         />
