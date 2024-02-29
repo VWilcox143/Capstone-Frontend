@@ -5,86 +5,77 @@ import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
 import ReceiptCreate from '../receipts/ReceiptCreate';
 import ReceiptsTable from '../receipts/ReceiptsTable';
+import ReceiptCreate from '../receipts/ReceiptCreate';
+import ReceiptsTable from '../receipts/ReceiptsTable';
 
 export default function TaskDetail(props) {
-  const { id } = useParams();
+const { id } = useParams();
 
-  const [ tasks, setTasks ] = useState('');
+const [ tasks, setTasks ] = useState('');
 
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
-  const [ receipt, setReceipt] = useState([]);
+const [ receipt, setReceipt] = useState([]);
 
-  const fetchReceipts = async () => {
-      const url = `${baseURL}/receipt/${id}`
-  
-      const requestOptions = {
-          method:'GET',
-          headers: new Headers ({
-              "Authorization": props.token
-          })
-      }
-  
-      try {
-          const rest = await fetch (url, requestOptions);
-          const data = await rest.json();
-          setReceipt(data.result)
-  
-      } catch (err) {
-          console.error(err.message);
-      }
-  }
-  
-  useEffect(() => {
-      if(props.token) {
-          fetchReceipts();
-      }
-  }, [props.token])
+const fetchReceipts = async () => {
+    const url = `${baseURL}/receipt/${id}`
 
-  const fetchTask = async () => {
-      const url = `${baseURL}/tasks/find-one/${id}`;
-      
+    const requestOptions = {
+        method:'GET',
+        headers: new Headers ({
+            "Authorization": props.token
+        })
+    }
 
-      const requestOptions = {
-          method: 'GET',
-          headers: new Headers({
-              'Authorization': props.token
-          })
-      }
+    try {
+        const rest = await fetch (url, requestOptions);
+        const data = await rest.json();
+        setReceipt(data.result)
+        
+    } catch (err) {
+        console.error(err.message);
+    }
+}
 
-      try {
-          
-          const res = await fetch(url, requestOptions);
-          const data = await res.json();
-          setTasks(data.results);
+useEffect(() => {
+    if(props.token) {
+        fetchReceipts();
+    }
+}, [props.token])
 
-
-
-
-      } catch (err) {
-          console.error(err.message)
-      }
-
-  }
-  useEffect(() => {
-      if(props.token) {
-          fetchTask();
-      }
-  }, [props.token])
-  return (
-    <>
-        <h2>{tasks.Job}</h2>
+const fetchTask = async () => {
+    const url = `${baseURL}/tasks/find-one/${id}`;
     
-        <UncontrolledAccordion
-      defaultOpen={[
-        '1',
-        '2'
-      ]}
-      stayOpen
-    >
-      <AccordionItem>
-        <AccordionHeader targetId="1">
-            <Container className='container' >
+
+    const requestOptions = {
+        method: 'GET',
+        headers: new Headers({
+            'Authorization': props.token
+        })
+    }
+
+    try {
+        const res = await fetch(url, requestOptions);
+        const data = await res.json();
+        setTasks(data.results);
+
+
+
+
+    } catch (err) {
+        console.error(err.message)
+}
+
+}
+    useEffect(() => {
+        if(props.token) {
+        fetchTask();
+    }
+}, [props.token])
+return (
+<>
+    <h2>{tasks.Job}</h2>
+        <Container>
             <Row>
                 <Col  >
                     <Table hover striped
@@ -125,30 +116,40 @@ export default function TaskDetail(props) {
                             <td>{tasks.payRate}</td>
                             <td>{tasks.taxRate}</td>
                     </tr>
-                    </tbody>
-                    </Table>
-                    </Col>
-                </Row>
-                </Container>
-        </AccordionHeader>
-        <AccordionBody accordionId="1">
-    <Container>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{tasks.Job}</td>
+                        <td>{tasks.hoursWorked}</td>
+                        <td>{tasks.mileage}</td>
+                        <td>{tasks.contact}</td>
+                        <td>{tasks.contactEmail}</td>
+                </tr>
+                </tbody>
+                </Table>
+                </Col>
+            </Row>
+            
         <Row>
-            <Col>
-            <ReceiptsTable
-                    token= {props.token}
-                    fetchReceipt= {fetchReceipts}
-                    receipts={receipt} />
+            {/* <Col md='4'>
+                <ReceiptCreate
+                token = {props.token}
+                fetchReceipts= {fetchReceipts} />
+            </Col> */}
+            <Col md='10'>
+                <ReceiptsTable
+                token= {props.token}
+                fetchReceipt= {fetchReceipts}
+                receipts={receipt} />
+            <FullButtons>
+                    <Button  color='info'
+                    outline
+                    onClick={() => navigate('/tasks')}>Back to Table</Button>
+                </FullButtons>
             </Col>
         </Row>
-    </Container>
-        </AccordionBody>
-      </AccordionItem>
-    
-    </UncontrolledAccordion>
-    <Button color='info'
-                            outline
-                            onClick={() => navigate('/tasks')}>Back to Table</Button>
-    </>
-    )
-    }
+
+        </Container>
+</>
+)
+}

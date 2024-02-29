@@ -10,7 +10,7 @@ function ReceiptIndex(props) {
 const { id } = useParams();
 
 const [ receipt, setReceipt] = useState([]);
-console.log(receipt)
+
 const fetchReceipts = async () => {
     const url = `${baseURL}/receipt/${id}`
 

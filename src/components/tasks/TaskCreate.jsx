@@ -1,10 +1,10 @@
 import React, {useRef} from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { baseURL } from '../../environment'
-import '../../Tailwind.css'
+import { Navigate } from 'react-router-dom'
 
 
-function TaskCreate(props) {
+export default function TaskCreate(props) {
     // console.log(props)
     const JobRef = useRef()
     const hoursRef = useRef()
@@ -50,7 +50,7 @@ function TaskCreate(props) {
             props.fetchTask()
 
             if(data.message === 'task added to collection') {
-                console.log(data)
+                
             }else {
                 alert(data.message)
             }
@@ -108,4 +108,3 @@ function TaskCreate(props) {
     )
 }
 
-export default TaskCreate

@@ -9,7 +9,6 @@ export default function TaskEdit(props) {
 
     const { id } = useParams();
 
-
     const [ tasks, setTasks ] = useState('');
     const [ taskJob, setTaskJob ] = useState('')
     const [ taskHours, setTaskHours ] = useState('')
@@ -17,61 +16,70 @@ export default function TaskEdit(props) {
     const [ taskContact, setTaskContact ] = useState('')
     const [ taskContactEmail, setTaskContactEmail ] = useState('')
     const navigate = useNavigate();
-
-
-
+    
+    
+    
     const fetchTask = async () => {
         const url = `${baseURL}/tasks/find-one/${id}`;
         
-
+        
         const requestOptions = {
             method: 'GET',
             headers: new Headers({
                 'Authorization': props.token
             })
         }
-
+        
         try {
             
             const res = await fetch(url, requestOptions);
             const data = await res.json();
+            console.log(data)
             setTasks(data.results);
-
-
-            const { job, hours, mileage, contact, contactEmail} = data
+            
+            
+            const { Job, hoursWorked, mileage, contact, contactEmail} = data.results
+          
 
             
-            setTaskJob(job);
-            setTaskHours(hours);
-            setTaskMileage(mileage);
+            setTaskJob(Job);
+            // setTaskHours(hoursWorked);
+            // setTaskMileage(mileage);
             setTaskContact(contact);
             setTaskContactEmail(contactEmail);
-
+            
         } catch (err) {
             console.error(err.message)
         }
-
+        
     }
     useEffect(() => {
         if(props.token) {
             fetchTask();
         }
     }, [props.token])
-
-
+    
+    
     async function handleSubmit(e) {
         e.preventDefault();
         // console.log(props.token)
         const url = `${baseURL}/tasks/${id}`;
 
+        const newHours = taskHours === '' ? 0: taskHours; 
+        const newMileage = taskMileage === '' ? 0: taskMileage;
+console.log(newHours, taskHours)
+        const totalHours = Number(newHours) + tasks.hoursWorked;
+        const totalMileage = Number(newMileage) + tasks.mileage;
+
         let body = JSON.stringify({
             Job: taskJob,
-            hoursWorked: taskHours,
-            mileage: taskMileage,
+            hoursWorked: totalHours,
+            mileage: totalMileage,
             contact: taskContact,
             contactEmail: taskContactEmail
         })
 
+        
         const requestOptions = {
             headers: new Headers({
                 'Authorization': props.token,
@@ -80,12 +88,14 @@ export default function TaskEdit(props) {
             body,
             method: 'PATCH'
         }
-
+        
         try {
-
+            
             const res = await fetch(url, requestOptions);
             const data = await res.json(); 
             fetchTask();
+            
+            // setHoursTotal(tasks.hoursWorked + taskHours)
 
 
             
@@ -190,6 +200,7 @@ export default function TaskEdit(props) {
                             </Label>
                             <Input 
                             value={taskHours}
+                            type= 'number'
                             onChange={e => setTaskHours(e.target.value)}
                             autoComplete = 'off'>
                             </Input>
@@ -200,6 +211,7 @@ export default function TaskEdit(props) {
                             </Label>
                             <Input 
                             value={taskMileage}
+                            type= 'number'
                             onChange={e => setTaskMileage(e.target.value)}
                             autoComplete = 'off'
                             ></Input>

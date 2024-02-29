@@ -8,7 +8,7 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
     const navigate = useNavigate();
 
     async function deleteReceipts(id) {
-        const url = `${baseURL}/receipt/${id}`;
+        const url = `${baseURL}/receipts/${id}`;
 
         let requestOptions = {
             headers: new Headers({
@@ -34,7 +34,7 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
     return (
         <>
             <h1>Receipts</h1>
-            <Table>
+            <Table hover striped>
             <thead>
                     <tr>
                         <th>
