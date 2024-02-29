@@ -3,8 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Col, Container, Row, Button, Table, UncontrolledAccordion, AccordionItem, AccordionHeader, AccordionBody } from 'reactstrap';
 import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
-import ReceiptCreate from '../receipts/ReceiptCreate';
 import ReceiptsTable from '../receipts/ReceiptsTable';
+import ReceiptCreate from '../receipts/ReceiptCreate';
 
 
 
@@ -115,9 +115,13 @@ return (
                             <td>{tasks.contactEmail}</td>
                             <td>{tasks.payRate}</td>
                             <td>{tasks.taxRate}</td>
-                    </tr>
-                </tbody>
-                <tbody>
+
+                       </tr>
+
+
+                  </tbody>
+                  <tbody>
+
                     <tr>
                         <td>{tasks.Job}</td>
                         <td>{tasks.hoursWorked}</td>
@@ -141,7 +145,7 @@ return (
                 token= {props.token}
                 fetchReceipt= {fetchReceipts}
                 receipts={receipt} />
-            <FullButtons>
+                <FullButtons>
                     <Button  color='white'
                     outline
                     onClick={() => navigate('/tasks')}>Back to Table</Button>

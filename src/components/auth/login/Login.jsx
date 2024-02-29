@@ -48,6 +48,7 @@ function Login({updateToken}) {
     return (
     <>
     <h2>Log In</h2>
+    <img className='logo' src='../../../../Joblogo.png' alt='logo' style={{ width: '600px', height: 'auto', display: 'block', margin: '0 auto' }}></img>
     <Form onSubmit={handleSubmit}>
         <FormGroup>
             <Label>E-mail:</Label>
