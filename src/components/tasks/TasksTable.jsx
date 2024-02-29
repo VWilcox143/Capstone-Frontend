@@ -42,7 +42,7 @@ setUser(tempUser)}, [])
         <>
             <h1 className='taskList'> Job List for {user}</h1>
             <Table hover striped>
-                <thead>
+                <thead className='IndexColumn'>
                     <tr>
                         <th>
                             Job

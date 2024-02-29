@@ -179,7 +179,7 @@ console.log(newHours, taskHours)
                     </Table>
                     <FullButtons>
                         <Button color='info'
-                        outline
+                        // outline
                         onClick={() => navigate('/tasks')}>Back to Table</Button>
                     </FullButtons>
                 </Col>
