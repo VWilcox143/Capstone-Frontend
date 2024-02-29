@@ -1,8 +1,10 @@
 import React, { useEffect, useState}  from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Col, Container, Form, FormGroup, Input, Label, Row, Button, Table } from 'reactstrap';
+import { Col, Container, Row, Button, Table, UncontrolledAccordion, AccordionItem, AccordionHeader, AccordionBody } from 'reactstrap';
 import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
+import ReceiptCreate from '../receipts/ReceiptCreate';
+import ReceiptsTable from '../receipts/ReceiptsTable';
 import ReceiptCreate from '../receipts/ReceiptCreate';
 import ReceiptsTable from '../receipts/ReceiptsTable';
 import '../../App'
@@ -76,27 +78,44 @@ return (
     <h2>{tasks.Job}</h2>
         <Container>
             <Row>
-            <Col md="10">
-                <Table hover striped
-                >
-                <thead>
-                    <tr>
-                        <th>
-                            Job
-                        </th>
-                        <th>
-                            Hours
-                        </th>
-                        <th>
-                            Mileage
-                        </th>
-                        <th>
-                            Contact
-                        </th>
-                        <th>
-                            Contact Email
-                        </th>
-
+                <Col  >
+                    <Table hover striped
+                    >
+                    <thead>
+                        <tr>
+                            <th>
+                                Job
+                            </th>
+                            <th>
+                                Hours
+                            </th>
+                            <th>
+                                Mileage
+                            </th>
+                            <th>
+                                Contact
+                            </th>
+                            <th>
+                                Contact Email
+                            </th>
+                            <th>
+                                Pay Rate
+                            </th>
+                            <th>
+                                Tax Rate
+                            </th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{tasks.Job}</td>
+                            <td>{tasks.hoursWorked}</td>
+                            <td>{tasks.mileage}</td>
+                            <td>{tasks.contact}</td>
+                            <td>{tasks.contactEmail}</td>
+                            <td>{tasks.payRate}</td>
+                            <td>{tasks.taxRate}</td>
                     </tr>
                 </thead>
                 <tbody>

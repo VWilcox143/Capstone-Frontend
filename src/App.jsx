@@ -8,6 +8,7 @@ import TaskEdit from './components/tasks/TaskEdit';
 import ReceiptEdit from './components/receipts/ReceiptEdit';
 import TaskDetail from './components/tasks/TaskDetail';
 import ReceiptIndex from './components/receipts/ReceiptIndex';
+// import './Tailwind.css';
 
 
 
@@ -30,7 +31,8 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" >
+      {/* //  <div className="border-solid">  */}
       {
         sessionToken !== '' ?
         <Logout setToken={setSessionToken}/> : null
