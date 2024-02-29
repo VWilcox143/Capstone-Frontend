@@ -93,6 +93,7 @@
   right: 0;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -116,7 +117,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #b9210d;
 }
 
 @keyframes App-logo-spin {
@@ -127,3 +128,4 @@
     transform: rotate(360deg);
   }
 }
+
