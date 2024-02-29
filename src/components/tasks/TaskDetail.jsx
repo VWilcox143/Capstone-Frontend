@@ -142,7 +142,7 @@ return (
                 fetchReceipt= {fetchReceipts}
                 receipts={receipt} />
             <FullButtons>
-                    <Button  color='info'
+                    <Button  color='white'
                     outline
                     onClick={() => navigate('/tasks')}>Back to Table</Button>
                 </FullButtons>
