@@ -62,6 +62,7 @@ export default function TaskCreate(props) {
     return (
     <>
         <h1 className="addTask">Add Task</h1>
+        {/* <h1 className="bg-green-700">Add Task</h1> */}
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Job</Label>
