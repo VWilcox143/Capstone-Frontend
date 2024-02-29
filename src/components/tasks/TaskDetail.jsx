@@ -7,7 +7,6 @@ import ReceiptCreate from '../receipts/ReceiptCreate';
 import ReceiptsTable from '../receipts/ReceiptsTable';
 
 
-
 export default function TaskDetail(props) {
 const { id } = useParams();
 
