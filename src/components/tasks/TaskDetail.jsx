@@ -6,6 +6,7 @@ import { baseURL } from '../../environment';
 import ReceiptsTable from '../receipts/ReceiptsTable';
 import ReceiptCreate from '../receipts/ReceiptCreate';
 
+
 export default function TaskDetail(props) {
 const { id } = useParams();
 
@@ -113,9 +114,13 @@ return (
                             <td>{tasks.contactEmail}</td>
                             <td>{tasks.payRate}</td>
                             <td>{tasks.taxRate}</td>
-                    </tr>
-                {/* </thead> */}
-                {/* <tbody> */}
+
+                       </tr>
+
+
+                  </tbody>
+                  <tbody>
+
                     <tr>
                         <td>{tasks.Job}</td>
                         <td>{tasks.hoursWorked}</td>
@@ -129,18 +134,18 @@ return (
             </Row>
             
         <Row>
-            {/* <Col md='4'>
+            <Col md='4'>
                 <ReceiptCreate
                 token = {props.token}
                 fetchReceipts= {fetchReceipts} />
-            </Col> */}
+            </Col>
             <Col md='10'>
                 <ReceiptsTable
                 token= {props.token}
                 fetchReceipt= {fetchReceipts}
                 receipts={receipt} />
                 <FullButtons>
-                    <Button  color='info'
+                    <Button  color='white'
                     outline
                     onClick={() => navigate('/tasks')}>Back to Table</Button>
                 </FullButtons>
