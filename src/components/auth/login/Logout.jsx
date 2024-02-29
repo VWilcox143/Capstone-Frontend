@@ -17,16 +17,18 @@ function Logout({setToken}) {
     navigate('/')//route back to Auth
     
   }
-
+  const style = { position: 'fixed', top: '10px', right: '10px', color: 'black'};
   return (
+    
     <>
         <Button 
             style={style}
-            color='danger'
+            color='dark'
             outline
+            // secondary
             onClick={signout}>
                 Log Out
-            </Button>
+            </Button>           
     </>
   )
 }
