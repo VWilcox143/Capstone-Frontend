@@ -5,8 +5,8 @@ import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
 import ReceiptCreate from '../receipts/ReceiptCreate';
 import ReceiptsTable from '../receipts/ReceiptsTable';
-import ReceiptCreate from '../receipts/ReceiptCreate';
-import ReceiptsTable from '../receipts/ReceiptsTable';
+
+
 
 export default function TaskDetail(props) {
 const { id } = useParams();
@@ -115,8 +115,8 @@ return (
                             <td>{tasks.contactEmail}</td>
                             <td>{tasks.payRate}</td>
                             <td>{tasks.taxRate}</td>
-                    </tr>
-                </thead>
+                        </tr>
+                    </tbody>
                 <tbody>
                     <tr>
                         <td>{tasks.Job}</td>
@@ -131,11 +131,11 @@ return (
             </Row>
             
         <Row>
-            {/* <Col md='4'>
+            <Col md='4'>
                 <ReceiptCreate
                 token = {props.token}
                 fetchReceipts= {fetchReceipts} />
-            </Col> */}
+            </Col>
             <Col md='10'>
                 <ReceiptsTable
                 token= {props.token}
