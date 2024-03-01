@@ -41,11 +41,13 @@ function TaskIndex(props) {
         <>
             <Container className='taskIndex'>
                 <Row>
+
                     <Col className='Box-Container' md='4'>
                         <TaskCreate 
                         token={props.token} 
                         fetchTask={fetchTask} />
                     </Col>
+
                     <Col md='1'></Col>
                     <Col className='TaskTable Box-Container' md='7'>
                         <TasksTable 

@@ -1,6 +1,9 @@
 import React, { useEffect, useState}  from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Col, Container, Row, Button, Table, UncontrolledAccordion, AccordionItem, AccordionHeader, AccordionBody } from 'reactstrap';
+import SubTaskCreate from '../subtask/SubTaskCreate';
+import SubTaskTable from '../subtask/SubTaskTable';
+import ReceiptIndex from '../receipts/ReceiptIndex'
 import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
 import ReceiptsTable from '../receipts/ReceiptsTable';
@@ -12,10 +15,39 @@ export default function TaskDetail(props) {
 const { id } = useParams();
 
 const [ tasks, setTasks ] = useState('');
+const [ receipt, setReceipt] = useState([]);
+const [ subTask, setSubTask] = useState([]);
 
 const navigate = useNavigate();
 
-const [ receipt, setReceipt] = useState([]);
+
+const fetchSubTask = async () => {
+    const url = `${baseURL}/subTask/${id}`;
+
+    const requestOptions = {
+        method:'GET',
+        headers: new Headers ({
+            "Authorization": props.token
+        })
+    }
+    
+    try {
+        const res = await fetch (url, requestOptions);
+        const data = await res.json();
+        console.log(data)
+
+        setSubTask(data.result)
+
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
+useEffect(() => {
+    if(props.token) {
+        fetchSubTask();
+    }
+}, [props.token])
 
 const fetchReceipts = async () => {
     const url = `${baseURL}/receipt/${id}`
@@ -72,6 +104,7 @@ const fetchTask = async () => {
         fetchTask();
     }
 }, [props.token])
+
 return (
 <>
     <h2>{tasks.Job}</h2>
@@ -157,3 +190,4 @@ return (
 </>
 )
 }
+
