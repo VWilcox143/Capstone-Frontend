@@ -40,7 +40,7 @@ setUser(tempUser)}, [])
 
     return (
         <>
-            <h1 className='taskList'> Task List {user}</h1>
+            <h1 className='taskList'> Job List for {user}</h1>
             <Table hover striped>
                 <thead className='IndexColumn'>
                     <tr>
@@ -59,6 +59,10 @@ setUser(tempUser)}, [])
                         <th>
                             Contact Email
                         </th>
+                        <th>
+                            Pay Rate
+                        </th>
+                        <th>Tax Estimate</th>
                         <th>
                             Add Receipt
                         </th>
@@ -83,6 +87,8 @@ setUser(tempUser)}, [])
                                 <td>{tasks.mileage}</td>
                                 <td>{tasks.contact}</td>
                                 <td>{tasks.contactEmail}</td>
+                                <td>{tasks.payRate}</td>
+                                <td>{tasks.hoursWorked * tasks.payRate * (tasks.taxRate/100)}</td>
                                 <td>
                                     <Button
                                         onClick={(event) => {
