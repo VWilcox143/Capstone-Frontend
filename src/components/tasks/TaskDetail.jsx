@@ -129,11 +129,11 @@ return (
             </Row>
             
         <Row>
-            {/* <Col md='4'>
+            <Col md='4'>
                 <ReceiptCreate
                 token = {props.token}
                 fetchReceipts= {fetchReceipts} />
-            </Col> */}
+            </Col>
             <Col md='10'>
                 <ReceiptsTable
                 token= {props.token}
