@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { baseURL } from '../../../environment';
 import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 function Login({updateToken}) {
 
@@ -47,8 +48,11 @@ function Login({updateToken}) {
 
     return (
     <>
+    <div className='loginContainer'>
+    <div className='loginContent'>
+    <img className='logo' src='../../../../LogoNew.png' alt='logo' style={{ width: '700px', height: 'auto', display: 'block', margin: '0 auto' }}></img>
+    <div className='loginInfo'>
     <h2>Log In</h2>
-    <img className='logo' src='../../../../Joblogo.png' alt='logo' style={{ width: '600px', height: 'auto', display: 'block', margin: '0 auto' }}></img>
     <Form onSubmit={handleSubmit}>
         <FormGroup>
             <Label>E-mail:</Label>
@@ -70,6 +74,9 @@ function Login({updateToken}) {
         </FormGroup>
             <Button type='submit'>Log In</Button>
     </Form>
+    </div>
+    </div>
+    </div>
     </>
     )
 }

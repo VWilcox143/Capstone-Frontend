@@ -150,7 +150,6 @@ return (
                             <td>{tasks.contactEmail}</td>
                             <td>{tasks.payRate}</td>
                             <td>{tasks.taxRate}</td>
-
                        </tr>
 
 

@@ -1,0 +1,144 @@
+/* .loginContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .loginContent {
+  
+    padding: 20px;
+    border: 1px solid #ccc; 
+  }
+
+  .loginInfo {
+    display: flex;
+   
+  }
+
+  .logo {
+    display: flex;
+  } */
+
+  /* .loginContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+  } */
+
+  .loginContainer {
+    /* position: relative; */
+    margin-left: 40vw;
+    /* padding-left: 40vw; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+  }
+  
+  .loginContent {
+    padding-top: 150px;
+    
+    /* margin-top: 50px; */
+    position:absolute;
+    max-width: 350px;
+    justify-content: flex-start;
+    text-align: center; 
+  }
+
+  .logo {
+    /* position: absolute;
+    overflow-x: 1000px;
+    top: -50 vh;
+    right: -30vw;
+    padding-right: 20vw;
+    margin-bottom: 500px;
+    height: 100vh;
+    max-width: 1000px;
+    max-height: 1000px;
+    justify-content: flex-start;
+    text-align: center; */
+  
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding-top: 50px;
+      /* margin-bottom: 100px; */
+  }
+
+  /* .Signup-Container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+  }
+
+  .LogoSignup {
+    position: absolute;
+    top: -50px;
+    right: -50%;
+    transform: translate(-50%, -50%);
+    padding-top: 50px;
+  } */
+
+  .SignupContainer {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+  .signupForm {
+    /* background-color: aqua; */
+    padding: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 14px;
+    border-color: rgb(23, 65, 86); 
+    background: linear-gradient(to bottom, #24475bea, #2d5871e2);
+    fill-opacity: 10;
+    flex: 1; /* Allow the form to take up remaining space */
+    min-width: 300px;
+    margin-right: 100px; /* Add some space between the form and logo */
+    color: white;
+  }
+  
+  .logoContainer {
+    flex-shrink: 0; /* Prevent the logo from shrinking */
+  }
+
+  /* .SignupButton {
+    padding-left: 10px;
+    margin-bottom: 20px;
+  } */
+
+  .addSignup {
+    /* display: flex; */
+    color: #2cd4b2;
+    -webkit-text-stroke-width: 1.5px; 
+    -webkit-text-stroke-color:  rgb(18, 51, 67);
+    padding-top: 7px;
+    padding-bottom: 10px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+    font-weight: 600;
+    font-style: oblique;
+    font-size: 40px;
+    text-shadow: 1px, 1px black;
+    background-color: linear-gradient(to bottom, #24475bea, #2d5871e2);
+    
+  } 
+
+  .Signup-Container{
+  /* padding-top: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  border-color: rgb(23, 65, 86); 
+  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
+  fill-opacity: 10;
+  height: 100vh;
+  box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px; */
+  margin-bottom: 100px;
+  }
+
+ 

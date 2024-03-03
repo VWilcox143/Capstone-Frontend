@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { baseURL } from '../../environment';
 import { Button, Table, Modal, ModalHeader, ModalBody, ModalFooter, Container, Row, Col } from 'reactstrap';
 import ReceiptIndex from '../receipts/ReceiptIndex';
+// import '../../App.css'
 
 function SubTaskTable({ subTask, token, fetchSubTask}) {
 
