@@ -69,7 +69,7 @@ function ReceiptCreate(props) {
     }
     return (
     <>
-        <h1 className="add-receipt">Add Receipt</h1>
+        <h1 className="addTask">Add Receipt</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Type</Label>

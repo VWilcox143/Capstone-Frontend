@@ -145,7 +145,7 @@ return (
                             <td>{tasks.contact}</td>
                             <td>{tasks.contactEmail}</td>
                             <td>{tasks.payRate}</td>
-                            <td>{tasks.taxRate}</td>
+                            <td>{tasks.taxRate}</td>                
                             <td>SubTask</td>
                         </tr>
                     </tbody>

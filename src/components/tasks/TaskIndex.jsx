@@ -42,7 +42,7 @@ function TaskIndex(props) {
             <Container className='taskIndex'>
                 <Row>
 
-                    <Col className='Box-Container' md='4'>
+                    <Col className='Box-Container' md='3'>
                         <TaskCreate 
                         token={props.token} 
                         fetchTask={fetchTask} />
