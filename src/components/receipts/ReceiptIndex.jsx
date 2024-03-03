@@ -12,7 +12,9 @@ const { id } = useParams();
 const [ receipt, setReceipt] = useState([]);
 
 const fetchReceipts = async () => {
-    const url = `${baseURL}/receipt/${id}`
+    let url = `${baseURL}/receipt/${id}`
+    if(props.subTaskId){url = `${baseURL}/receipt/findsub/${props.subTaskId}`}
+
 
     const requestOptions = {
         method:'GET',
@@ -25,7 +27,7 @@ const fetchReceipts = async () => {
         const rest = await fetch (url, requestOptions);
         const data = await rest.json();
         setReceipt(data.result)
-        
+
     } catch (err) {
         console.error(err.message);
     }
@@ -44,6 +46,7 @@ useEffect(() => {
             <Col md='4'>
                 <ReceiptCreate 
                 token = {props.token}
+                subTaskId = {props.subTaskId ? props.subTaskId: null }
                 fetchReceipts= {fetchReceipts} />
             </Col>
             <Col md='8'>
