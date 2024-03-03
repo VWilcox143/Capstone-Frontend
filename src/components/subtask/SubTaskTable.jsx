@@ -12,6 +12,7 @@ function SubTaskTable({ subTask, token, fetchSubTask}) {
 
     const { id } = useParams()
 
+    const [ curSubTaskId, setCurSubTaskId] = useState('')
     const [ tasks, setTasks] = useState('')
     const [ receipt, setReceipt] = useState([])
     const navigate = useNavigate();
@@ -129,17 +130,18 @@ function SubTaskTable({ subTask, token, fetchSubTask}) {
                                 <td>{subTask.mileage}</td>
                             
 
-                                <td><Button color="danger" onClick={toggle}>
+                                <td><Button color="danger" onClick={() => {setCurSubTaskId(subTask._id);  toggle()}}>
         View Receipts
       </Button></td>
       <Modal isOpen={modal} toggle={toggle} >
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle}>Receipts</ModalHeader>
         <ModalBody>
         <Container>
         <Row>
             <Col md='10'>
                 <ReceiptIndex 
                 token = {token}
+                subTaskId = {curSubTaskId}
                 fetchReceipts = {fetchReceipts}
                 fetchReceipt = {fetchReceipts}
                 receipts={receipt} />

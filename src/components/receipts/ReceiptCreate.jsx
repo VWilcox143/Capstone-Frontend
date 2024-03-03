@@ -5,9 +5,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 
 function ReceiptCreate(props) {
-    
+
     const {id}=useParams() // needs to match route
-    // console.log(props)
+    
     const typeRef = useRef();
     const dateRef = useRef();
     const amountRef = useRef();
@@ -32,7 +32,10 @@ function ReceiptCreate(props) {
         myHeaders.append('Authorization', props.token)
 
         // const url = `${baseURL}/receipt/`
-        const url = `${baseURL}/receipt/${id}`;
+        let url = `${baseURL}/receipt/${id}`;
+
+        if(props.subTaskId){url = `${baseURL}/receipt/${id}/findsub/${props.subTaskId}`}
+
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
         
@@ -53,7 +56,7 @@ function ReceiptCreate(props) {
             if(data.message === `Receipt Created:`) {
                 console.log(data)
             }else {
-                alert(data.message)
+                // alert(data.message)
             }
 
         } catch (err) {
