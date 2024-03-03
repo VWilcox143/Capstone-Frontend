@@ -9,9 +9,8 @@ import { baseURL } from '../../environment';
 
 
 
+export default function TaskDetail(props) {
 
-
-export default function TaskDetail(props, token) {
 const { id } = useParams();
 
 const [ tasks, setTasks ] = useState('');
