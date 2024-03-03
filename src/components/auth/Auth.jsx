@@ -16,9 +16,9 @@ export default function Auth(props) {
     const displayForm = () => {
         return (
             button === 'Login' ?
-                <Container>
+                <Container className='Signup-Container'>
                     <Row>
-                <Col md='6'>
+                <Col md='3'>
                     <Signup updateToken={props.updateToken}/>
                 </Col>
                     </Row>
@@ -28,17 +28,19 @@ export default function Auth(props) {
                             <Col md='6'>
                                 <Login 
                                 updateToken={props.updateToken}/>
-                            </Col>
+                        </Col>
                         </Row>
-                </Container>
+                </Container> 
         )
     }
 
     return (
     <>
     <Button onClick = {swapForm}
-            color='dark'>
+            color='dark' style={{ marginLeft: '10px', marginBottom: '30px'}}>
+                
                 {button}
+                
             </Button>
         {displayForm()}
     </>

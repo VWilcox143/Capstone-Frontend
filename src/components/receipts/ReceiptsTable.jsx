@@ -33,9 +33,9 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
 
     return (
         <>
-            <h1>Receipts</h1>
+            <h1 className='addTask'>Receipts</h1>
             <Table hover striped>
-            <thead>
+            <thead className='IndexColumn'>
                     <tr>
                         <th>
                             Type
@@ -45,6 +45,12 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
                         </th>
                         <th>
                             Amount
+                        </th>
+                        <th>
+                            Delete
+                        </th>
+                        <th>
+                            Edit
                         </th>
                     </tr>
                 </thead>
