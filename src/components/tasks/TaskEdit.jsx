@@ -119,10 +119,71 @@ console.log(newHours, taskHours)
 
     return (
     <>
-        <h1 style={style}>Edit Task</h1>
-        <Container>
+        {/* <h1 style={style}>Edit Task</h1> */}
+        <Container className='taskIndex'>
             <Row>
-                <Col md="4">
+                <Col className='TaskTable Box-Container'>
+                <h1 className='addTask'>Edit Job</h1>
+                    <Form onSubmit={handleSubmit}>
+                        <FormGroup>
+                            <Label>
+                                Job
+                            </Label>
+                            <Input 
+                            value={taskJob}
+                            onChange={e => setTaskJob(e.target.value)}
+                            autoComplete = 'off' />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>
+                                Hours
+                            </Label>
+                            <Input 
+                            value={taskHours}
+                            type= 'number'
+                            onChange={e => setTaskHours(e.target.value)}
+                            autoComplete = 'off'>
+                            </Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>
+                                Mileage
+                            </Label>
+                            <Input 
+                            value={taskMileage}
+                            type= 'number'
+                            onChange={e => setTaskMileage(e.target.value)}
+                            autoComplete = 'off'
+                            ></Input>
+                        </FormGroup>
+                        
+                        <FormGroup>
+                            <Label>
+                                Contact
+                            </Label>
+                            <Input 
+                            value={taskContact}
+                            onChange={e => setTaskContact(e.target.value)}
+                            autoComplete = 'off' />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>
+                                Contact E-mail
+                            </Label>
+                            <Input 
+                            value={taskContactEmail}
+                            onChange={e => setTaskContactEmail(e.target.value)}
+                            autoComplete = 'off' />
+                            
+                        </FormGroup>
+                        <FullButtons>
+                            <Button color='success'>Update</Button>
+                        </FullButtons>
+                    </Form>
+                </Col>
+                <Col md='3'>
+                </Col>
+                <Col className='Box-Container' md="4">
                 <Table striped>
                     <thead>
                         <tr>
@@ -183,66 +244,10 @@ console.log(newHours, taskHours)
                         onClick={() => navigate('/tasks')}>Back to Table</Button>
                     </FullButtons>
                 </Col>
-                <Col>
-                    <Form onSubmit={handleSubmit}>
-                        <FormGroup>
-                            <Label>
-                                Job
-                            </Label>
-                            <Input 
-                            value={taskJob}
-                            onChange={e => setTaskJob(e.target.value)}
-                            autoComplete = 'off' />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>
-                                Hours
-                            </Label>
-                            <Input 
-                            value={taskHours}
-                            type= 'number'
-                            onChange={e => setTaskHours(e.target.value)}
-                            autoComplete = 'off'>
-                            </Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>
-                                Mileage
-                            </Label>
-                            <Input 
-                            value={taskMileage}
-                            type= 'number'
-                            onChange={e => setTaskMileage(e.target.value)}
-                            autoComplete = 'off'
-                            ></Input>
-                        </FormGroup>
-                        
-                        <FormGroup>
-                            <Label>
-                                Contact
-                            </Label>
-                            <Input 
-                            value={taskContact}
-                            onChange={e => setTaskContact(e.target.value)}
-                            autoComplete = 'off' />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>
-                                Contact E-mail
-                            </Label>
-                            <Input 
-                            value={taskContactEmail}
-                            onChange={e => setTaskContactEmail(e.target.value)}
-                            autoComplete = 'off' />
-                            
-                        </FormGroup>
-                        <FullButtons>
-                            <Button color='success'>Update</Button>
-                        </FullButtons>
-                    </Form>
-                </Col>
             </Row>
         </Container>
     </>
     )
 }
+
+// ! 02/29 added classnames to make it uniform with taskIndex. Did similar to receiptindex and receipttable.

@@ -9,9 +9,8 @@ import { baseURL } from '../../environment';
 
 
 
+export default function TaskDetail(props) {
 
-
-export default function TaskDetail(props, token) {
 const { id } = useParams();
 
 const [ tasks, setTasks ] = useState('');
@@ -145,7 +144,7 @@ return (
                             <td>{tasks.contact}</td>
                             <td>{tasks.contactEmail}</td>
                             <td>{tasks.payRate}</td>
-                            <td>{tasks.taxRate}</td>
+                            <td>{tasks.taxRate}</td>                
                             <td>SubTask</td>
                         </tr>
                     </tbody>

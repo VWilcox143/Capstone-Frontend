@@ -41,15 +41,17 @@ useEffect(() => {
 
   return (
     <>
-    <Container>
+    <Container className='taskIndex'>
         <Row>
-            <Col md='4'>
+            <Col className='Box-Container' md='4'>
                 <ReceiptCreate 
                 token = {props.token}
                 subTaskId = {props.subTaskId ? props.subTaskId: null }
                 fetchReceipts= {fetchReceipts} />
             </Col>
-            <Col md='8'>
+            <Col>
+            </Col>
+            <Col className='TaskTable Box-Container' md='7'>
                 <ReceiptsTable
                 token= {props.token}
                 fetchReceipt= {fetchReceipts}
