@@ -1,17 +1,16 @@
 import React, { useEffect, useState}  from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Col, Container, Row, Button, Table, UncontrolledAccordion, AccordionItem, AccordionHeader, AccordionBody } from 'reactstrap';
+import { Col, Container, Row, Button, Table, } from 'reactstrap';
 import SubTaskCreate from '../subtask/SubTaskCreate';
 import SubTaskTable from '../subtask/SubTaskTable';
-import ReceiptIndex from '../receipts/ReceiptIndex'
 import FullButtons from '../buttons/FullButtons';
 import { baseURL } from '../../environment';
-import ReceiptsTable from '../receipts/ReceiptsTable';
-import ReceiptCreate from '../receipts/ReceiptCreate';
+
 
 
 
 export default function TaskDetail(props) {
+
 const { id } = useParams();
 
 const [ tasks, setTasks ] = useState('');
@@ -34,10 +33,9 @@ const fetchSubTask = async () => {
     try {
         const res = await fetch (url, requestOptions);
         const data = await res.json();
-        console.log(data)
+
 
         setSubTask(data.result)
-
     } catch (err) {
         console.error(err.message);
     }
@@ -63,7 +61,7 @@ const fetchReceipts = async () => {
         const rest = await fetch (url, requestOptions);
         const data = await rest.json();
         setReceipt(data.result)
-        
+
     } catch (err) {
         console.error(err.message);
     }
@@ -110,7 +108,7 @@ return (
     <h2>{tasks.Job}</h2>
         <Container>
             <Row>
-                <Col  >
+                <Col>
                     <Table hover striped
                     >
                     <thead>
@@ -136,7 +134,6 @@ return (
                             <th>
                                 Tax Rate
                             </th>
-    
                         </tr>
                     </thead>
                     <tbody>
@@ -147,46 +144,35 @@ return (
                             <td>{tasks.contact}</td>
                             <td>{tasks.contactEmail}</td>
                             <td>{tasks.payRate}</td>
-                            <td>{tasks.taxRate}</td>
-
-                       </tr>
-
-
-                  </tbody>
-                  <tbody>
-
-                    <tr>
-                        <td>{tasks.Job}</td>
-                        <td>{tasks.hoursWorked}</td>
-                        <td>{tasks.mileage}</td>
-                        <td>{tasks.contact}</td>
-                        <td>{tasks.contactEmail}</td>
-                </tr>
-                </tbody>
+                            <td>{tasks.taxRate}</td>                
+                            <td>SubTask</td>
+                        </tr>
+                    </tbody>
                 </Table>
                 </Col>
             </Row>
-            
+    <Container className='taskIndex'>
         <Row>
-            <Col md='4'>
-                <ReceiptCreate
+            <Col className='Box-Container' md='4'>
+                <SubTaskCreate
                 token = {props.token}
-                fetchReceipts= {fetchReceipts} />
+                fetchSubTask= {fetchSubTask} />
             </Col>
-            <Col md='10'>
-                <ReceiptsTable
+            <Col md='1'></Col>
+            <Col className='TaskTable Box-Container' md='7'>
+                <SubTaskTable
                 token= {props.token}
-                fetchReceipt= {fetchReceipts}
-                receipts={receipt} />
+                fetchSubTask= {fetchSubTask}
+                subTask={subTask} />
+            </Col>
+        </Row>
+    </Container>
+        </Container>
                 <FullButtons>
                     <Button  color='white'
                     outline
                     onClick={() => navigate('/tasks')}>Back to Table</Button>
                 </FullButtons>
-            </Col>
-        </Row>
-
-        </Container>
 </>
 )
 }

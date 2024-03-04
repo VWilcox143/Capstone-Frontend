@@ -48,10 +48,12 @@ function App() {
         <Logout setToken={setSessionToken}/> : null
       }
       <Routes>
+        
         <Route 
           path='/'
           element={<Auth updateToken={updateToken}/>}
         />
+       
         <Route
           path='/tasks'
           element={<TaskIndex token={sessionToken}/>}
