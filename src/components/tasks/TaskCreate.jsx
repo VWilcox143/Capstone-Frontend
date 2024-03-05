@@ -56,7 +56,7 @@ export default function TaskCreate(props) {
             if(data.message === 'task added to collection') {
                 
             }else {
-                alert(data.message)
+                // alert(data.message)
             }
 
         } catch (err) {
@@ -107,11 +107,15 @@ export default function TaskCreate(props) {
                     innerRef={emailRef}
                     autoComplete='off'
                 />
+            </FormGroup>
+            <FormGroup>
                 <Label>Pay Rate</Label>
                 <Input 
                     innerRef={payRef}
                     autoComplete='off'
                 />
+             </FormGroup>
+            <FormGroup>
                 <Label>Tax Rate</Label>
                 <Input 
                     innerRef={taxRef}

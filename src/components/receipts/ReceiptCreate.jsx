@@ -5,9 +5,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 
 function ReceiptCreate(props) {
-    
+
     const {id}=useParams() // needs to match route
-    // console.log(props)
+<<<<<<< HEAD
+    
+=======
+    console.log(id)
+>>>>>>> 5c2ceed29f87867a3bbd47631357ea998c3278ad
     const typeRef = useRef();
     const dateRef = useRef();
     const amountRef = useRef();
@@ -32,7 +36,10 @@ function ReceiptCreate(props) {
         myHeaders.append('Authorization', props.token)
 
         // const url = `${baseURL}/receipt/`
-        const url = `${baseURL}/receipt/${id}`;
+        let url = `${baseURL}/receipt/${id}`;
+
+        if(props.subTaskId){url = `${baseURL}/receipt/${id}/findsub/${props.subTaskId}`}
+
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
         
@@ -53,7 +60,7 @@ function ReceiptCreate(props) {
             if(data.message === `Receipt Created:`) {
                 console.log(data)
             }else {
-                alert(data.message)
+                // alert(data.message)
             }
 
         } catch (err) {
@@ -62,7 +69,7 @@ function ReceiptCreate(props) {
     }
     return (
     <>
-        <h1 className="add-receipt">Add Receipt</h1>
+        <h1 className="addTask">Add Receipt</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Type</Label>

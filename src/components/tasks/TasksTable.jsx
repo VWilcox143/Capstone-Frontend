@@ -90,27 +90,27 @@ setUser(tempUser)}, [])
                                 <td>{tasks.payRate}</td>
                                 <td>{tasks.hoursWorked * tasks.payRate * (tasks.taxRate/100)}</td>
                                 <td>
-                                    <Button
+                                    <Button className='addReceiptButton'
                                         onClick={(event) => {
                                             event.stopPropagation()
                                             navigate(`/receipts/add/${tasks._id}`)}}
-                                        color='success'
+                                        // color='dark'
                                     >Add Receipt</Button>
                                 </td>
                                 <td>
-                                    <Button
+                                    <Button className='updateButton'
                                         onClick={(event) => {
                                             event.stopPropagation()
                                             navigate(`/tasks/update/${tasks._id}`)}}
-                                        color='warning'
+                                        // color='dark'
                                     >Update</Button>
                                 </td>
                                 <td>
-                                    <Button
+                                    <Button className='deleteButton'
                                         onClick={(event) => { 
                                             event.stopPropagation()
                                             deleteTasks(tasks._id)}}
-                                        color='danger'
+                                        // color='dark'
                                     >Delete</Button>
                                 </td>
                             </tr>

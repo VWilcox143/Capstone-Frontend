@@ -17,14 +17,15 @@ function Logout({setToken}) {
     navigate('/')//route back to Auth
     
   }
-  const style = { position: 'fixed', top: '10px', right: '10px', color: 'black'};
+  const style = { position: 'absolute', top: '10px', right: '10px' };
   return (
     
     <>
         <Button 
             style={style}
             color='dark'
-            outline
+            // type='submit'
+            // outline
             // secondary
             onClick={signout}>
                 Log Out

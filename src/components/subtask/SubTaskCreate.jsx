@@ -2,6 +2,7 @@ import React, {useRef} from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { baseURL } from '../../environment'
 import { useParams, useNavigate } from 'react-router-dom';
+// import './App.css'
 
 export default function SubTaskCreate(props) {
     const {id}=useParams() // needs to match route
