@@ -67,7 +67,6 @@ export default function TaskEdit(props) {
 
         const newHours = taskHours === '' ? 0: taskHours; 
         const newMileage = taskMileage === '' ? 0: taskMileage;
-console.log(newHours, taskHours)
         const totalHours = Number(newHours) + tasks.hoursWorked;
         const totalMileage = Number(newMileage) + tasks.mileage;
 
