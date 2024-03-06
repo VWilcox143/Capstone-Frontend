@@ -101,9 +101,9 @@ export default function SubTaskCreate(props) {
                     autoComplete='off'
                 />
             </FormGroup>
-                <Button color='success'>Add Entry</Button>
-                <Button color='info'
-                        outline
+                <Button style={{ marginRight: '10px' }} color='success'>Add Entry</Button>
+                <Button className='BackToTable' color='success'
+                        
                         onClick={() => navigate('/tasks')}>Back to Table</Button>
         </Form>
     </>
