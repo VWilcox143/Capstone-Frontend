@@ -95,7 +95,7 @@ console.log(data.results)
     <>
     <Container>
         <Row>
-        <Col className='TaskTable Box-Container'>
+        <Col className='Box-Container'>
         <h1 className='addTask'>Edit Receipt</h1>
                     <Form onSubmit={handleSubmit}>
                 <FormGroup>
@@ -131,8 +131,7 @@ console.log(data.results)
                     </Form>
                 </Col>
                 <Col md='1'></Col>
-            <Col className='SubTask-Container'>
-                
+            <Col className='Box-Container'>
                 <Table>
                     <thead className='IndexColumn'>
                         <tr>
@@ -172,8 +171,8 @@ console.log(data.results)
                     </tbody>  
                 </Table>
                 <FullButtons>
-                    <Button className='EditReceiptBTTB'
-                    color="dark"
+                    <Button className='AddReceiptBTTB'
+                    color="success"
                     
                     onClick={() => navigate(`/receipts/add/${receipt.task_id}`)}>Back to Table</Button> 
                 </FullButtons>

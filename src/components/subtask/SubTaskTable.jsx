@@ -131,15 +131,15 @@ function SubTaskTable({ subTask, token, fetchSubTask}) {
                                 <td>{subTask.mileage}</td>
                             
 
-                                <td><Button color="danger" onClick={() => {setCurSubTaskId(subTask._id);  toggle()}}>
+                                <td><Button className='AddReceiptBTTB' color="dark" onClick={() => {setCurSubTaskId(subTask._id);  toggle()}}>
         View Receipts
       </Button></td>
-      <Modal size="lg" style={{maxWidth: '1000px', width: '100%'}} isOpen={modal} toggle={toggle} >
+      <Modal className='modal-content' size="lg" style={{maxWidth: '1000px', width: '100%'}} isOpen={modal} toggle={toggle} >
         <ModalHeader toggle={toggle}>Receipts</ModalHeader>
         <ModalBody>
         <Container>
         <Row>
-            <Col md='10'>
+            <Col className='modal-tables' md='10'>
                 <ReceiptIndex 
                 token = {token}
                 subTaskId = {curSubTaskId}

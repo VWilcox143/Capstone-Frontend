@@ -92,9 +92,9 @@ function ReceiptCreate(props) {
                     autoComplete='off'
                 />
             </FormGroup>
-                <Button color='success'>Add Receipt</Button>
-                <Button className='AddReceiptBTTB' color='dark'
-                        outline
+                <Button style={{ marginRight: '10px' }} color='success'>Add Receipt</Button>
+                <Button className='BackToTable' 
+                        color='success'
                         onClick={() => navigate('/tasks')}>Back to Table</Button>
         </Form>
     </>
