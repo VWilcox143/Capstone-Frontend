@@ -93,12 +93,48 @@ console.log(data.results)
 
     return (
     <>
-    <h1 style={style}>Edit Receipt</h1>
     <Container>
         <Row>
-            <Col>
+        <Col className='TaskTable Box-Container'>
+        <h1 className='addTask'>Edit Receipt</h1>
+                    <Form onSubmit={handleSubmit}>
+                <FormGroup>
+                    <Label>
+                        Type
+                    </Label>
+                    <Input
+                    value={receiptType}
+                    onChange={e => setReceiptType(e.target.value)}
+                    autoComplete='off'/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>
+                        Date
+                    </Label>
+                    <Input
+                    value={receiptDate}
+                    onChange={e => setReceiptDate(e.target.value)}
+                    autoComplete='off'/>
+                </FormGroup>
+                <FormGroup>
+                    <Label>
+                        Amount
+                    </Label>
+                    <Input
+                    value={receiptAmount}
+                    onChange={e => setReceiptAmount(e.target.value)}
+                    autoComplete='off'/>
+                </FormGroup>
+                <FullButtons>
+                    <Button color='success'>Update</Button>
+                </FullButtons>
+                    </Form>
+                </Col>
+                <Col md='1'></Col>
+            <Col className='SubTask-Container'>
+                
                 <Table>
-                    <thead>
+                    <thead className='IndexColumn'>
                         <tr>
                         <th>
                             Field
@@ -111,7 +147,7 @@ console.log(data.results)
                     <tbody>
                         <tr>
                         <th scope="row">
-                            type:
+                            Type:
                         </th>
                         <td> 
                             {receipt.type}
@@ -119,7 +155,7 @@ console.log(data.results)
                         </tr>
                         <tr>
                         <th scope="row">
-                            date:
+                            Date:
                         </th>
                         <td>
                             {receipt.date}
@@ -127,54 +163,21 @@ console.log(data.results)
                         </tr>
                         <tr>
                         <th scope="row">
-                            amount
+                            Amount
                         </th>
                         <td>
                             {receipt.amount}
                         </td>
                         </tr>
-                    </tbody>
+                    </tbody>  
                 </Table>
                 <FullButtons>
-                    <Button color='info'
-                    outline
+                    <Button className='EditReceiptBTTB'
+                    color="dark"
+                    
                     onClick={() => navigate(`/receipts/add/${receipt.task_id}`)}>Back to Table</Button> 
                 </FullButtons>
             </Col>
-            <Col>
-                    <Form onSubmit={handleSubmit}>
-                <FormGroup>
-                    <Label>
-                        type
-                    </Label>
-                    <Input
-                    value={receiptType}
-                    onChange={e => setReceiptType(e.target.value)}
-                    autoComplete='off'/>
-                </FormGroup>
-                <FormGroup>
-                    <Label>
-                        date
-                    </Label>
-                    <Input
-                    value={receiptDate}
-                    onChange={e => setReceiptDate(e.target.value)}
-                    autoComplete='off'/>
-                </FormGroup>
-                <FormGroup>
-                    <Label>
-                        amount
-                    </Label>
-                    <Input
-                    value={receiptAmount}
-                    onChange={e => setReceiptAmount(e.target.value)}
-                    autoComplete='off'/>
-                </FormGroup>
-                <FullButtons>
-                    <Button color='success'>Update</Button>
-                </FullButtons>
-                    </Form>
-                </Col>
             </Row>
         </Container>
     </>

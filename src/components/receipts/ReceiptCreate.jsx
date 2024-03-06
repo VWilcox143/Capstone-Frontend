@@ -7,11 +7,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 function ReceiptCreate(props) {
 
     const {id}=useParams() // needs to match route
-<<<<<<< HEAD
-    
-=======
     console.log(id)
->>>>>>> 5c2ceed29f87867a3bbd47631357ea998c3278ad
     const typeRef = useRef();
     const dateRef = useRef();
     const amountRef = useRef();
@@ -98,7 +94,7 @@ function ReceiptCreate(props) {
                 />
             </FormGroup>
                 <Button color='success'>Add Receipt</Button>
-                <Button color='info'
+                <Button className='AddReceiptBTTB' color='dark'
                         outline
                         onClick={() => navigate('/tasks')}>Back to Table</Button>
         </Form>

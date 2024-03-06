@@ -63,7 +63,7 @@ export default function SubTaskCreate(props) {
     }
     return (
     <>
-        <h1>Add Entry</h1>
+        <h1 className="addTask">Add Entry</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Date</Label>
