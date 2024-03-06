@@ -7,7 +7,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 function ReceiptCreate(props) {
 
     const {id}=useParams() // needs to match route
-    console.log(id)
     const typeRef = useRef();
     const dateRef = useRef();
     const amountRef = useRef();
