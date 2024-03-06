@@ -4,12 +4,13 @@ import { baseURL } from '../../environment'
 import { useNavigate } from 'react-router-dom';
 
 
+
 function TasksTable({tasks, token, fetchTask}) {
 
     const [ user, setUser ] = useState('');
 
-useEffect(() => {let tempUser = localStorage.getItem("userName")
-setUser(tempUser)}, [])
+    useEffect(() => {let tempUser = localStorage.getItem("userName")
+    setUser(tempUser)}, [])
     
 
     const navigate = useNavigate();
@@ -69,7 +70,7 @@ setUser(tempUser)}, [])
                             Add Receipt
                         </th>
                         <th>
-                            Edit
+                            Update
                         </th>
                         <th>
                             Delete

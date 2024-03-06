@@ -52,7 +52,7 @@ export default function SubTaskCreate(props) {
             props.fetchSubTask()
 
             if(data.message === `Entry Created:`) {
-                console.log(data)
+            
             }else {
                 // alert(data.message)
             }
