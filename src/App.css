@@ -41,6 +41,11 @@
 } 
 /* headers ^ */
 
+.Table-Responsive {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 /* Table Headers */
 .IndexColumn>tr>th {
   background-color: rgba(0, 0, 0, 0.483);
@@ -50,17 +55,37 @@
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+
 /* Table Bottom Row */
 .IndexColumn>tr {
-  /* border-style: solid;
-  border-width: 1px;
-  border-radius: 30px !important; */
   text-decoration:wavy;
   text-align: center;
-  /* border-color: rgb(23, 65, 86); */
 }
 
+.ReceiptTableColumn>tr {
+  text-decoration:wavy;
+  text-align: center;
+}
+
+/*!  .button-container>td {
+  display:flex !important;
+  justify-content: center !important;
+} */
+
 .Box-Container {
+  padding-top: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  border-color: rgb(23, 65, 86); 
+  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
+  fill-opacity: 10;
+  /* height: 100vh; */
+  box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
+  margin-bottom: 100px;
+}
+
+.TaskTable-Container {
   padding-top: 5px;
   border-style: solid;
   border-width: 2px;
@@ -71,12 +96,103 @@
   height: 100vh;
   box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
   margin-bottom: 100px;
+  overflow-x: auto;
 }
 
-.taskIndex .Row {
+.TaskTable-Container-Main {
+  min-width: 750px;
+  padding-top: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  border-color: rgb(23, 65, 86); 
+  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
+  fill-opacity: 10;
+  height: 100vh;
+  box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
+  margin-bottom: 100px;
+  margin-left: 100px;
+  overflow-x: auto;
+}
+
+.TaskTable {
+  max-width: 100%;
+}
+
+.SubTask-Container {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  border-color: rgb(23, 65, 86); 
+  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
+  fill-opacity: 10;
+  /* height: 100vh; */
+  box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
+  margin-bottom: 20px;
+}
+
+.SubTask-Container-Header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 3px;
+  max-width: 125px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  border-color: rgb(23, 65, 86); 
+  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
+  fill-opacity: 10;
+  box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
+  margin-bottom: .5px;
   display: flex;
+  color: #2cd4b2;
+  -webkit-text-stroke-width: .5px; 
+  -webkit-text-stroke-color:  rgb(18, 51, 67);
+}
+
+.SubTask-Header {
+  /* padding-top: 5px; */
+  padding-bottom: 5px;
+  padding-left: 1px;
+  /* max-width: 125px; */
+  /* border-style: solid;
+  border-width: 2px;
+  border-radius: 14px;
+  border-color: rgb(23, 65, 86);  */
+  /* background: linear-gradient(to bottom, #24475bea, #2d5871e2); */
+  /* fill-opacity: 10; */
+  /* box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px; */
+  margin-bottom: .5px;
+  display: flex;
+  color: #2cd4b2;
+  -webkit-text-stroke-width: .5px; 
+  -webkit-text-stroke-color:  rgb(18, 51, 67);
+}
+
+
+.taskIndex .Row {
+  /* display: flex; */
   /* flex-wrap: wrap; */
 }
+
+/* .EditJob {
+  background-color: #f2f2f2; 
+  border: 1px solid #ddd; 
+}
+
+.EditJob th, .EditJob td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.EditJob th {
+  background-color: #4CAF50; 
+  color: white;
+} */
 
 /* .Box-Container {
   flex: 1;
@@ -136,6 +252,17 @@
   background-color: #0b4849e2!important;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-style: oblique;
+}
+
+.AddReceiptBTTB {
+  background-color: #0c2a2ae2!important;
+  color: rgba(255, 255, 255, 0.775) !important;
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+  /* font-style: oblique; */
+}
+
+.modal-body {
+ max-width: 100%;
 }
 
 /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */

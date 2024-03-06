@@ -4,12 +4,13 @@ import { baseURL } from '../../environment'
 import { useNavigate } from 'react-router-dom';
 
 
+
 function TasksTable({tasks, token, fetchTask}) {
 
     const [ user, setUser ] = useState('');
 
-useEffect(() => {let tempUser = localStorage.getItem("userName")
-setUser(tempUser)}, [])
+    useEffect(() => {let tempUser = localStorage.getItem("userName")
+    setUser(tempUser)}, [])
     
 
     const navigate = useNavigate();
@@ -39,8 +40,10 @@ setUser(tempUser)}, [])
     }
 
     return (
-        <>
-            <h1 className='taskList'> Job List for {user}</h1>
+        <>  
+            <h1 className='addTask'> Job List for {user}</h1>
+            <div className='Table-Responsive'>
+            {/* <h1 className='addTask'> Job List for {user}</h1> */}
             <Table hover striped>
                 <thead className='IndexColumn'>
                     <tr>
@@ -67,14 +70,14 @@ setUser(tempUser)}, [])
                             Add Receipt
                         </th>
                         <th>
-                            Edit
+                            Update
                         </th>
                         <th>
                             Delete
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='button-container'>
 
                     { typeof tasks === "object" &&
 
@@ -118,6 +121,7 @@ setUser(tempUser)}, [])
                     }
                 </tbody>
             </Table>
+            </div>
         </>
     )
 }
