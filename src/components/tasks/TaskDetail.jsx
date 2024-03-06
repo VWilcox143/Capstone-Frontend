@@ -147,13 +147,16 @@ const fetchTask = async () => {
 
 return (
 <>
-    <h2>{tasks.Job}</h2>
+    {/* <h2>{tasks.Job}</h2> */}
         <Container>
+            {/* <h2 className='SubTask-Header'>{tasks.Job}</h2> */}
+            <div className='SubTask-Container'>
+            <h2 className='SubTask-Header'>{tasks.Job}</h2>
             <Row>
                 <Col>
                     <Table hover striped
                     >
-                    <thead>
+                    <thead className='IndexColumn'>
                         <tr>
                             <th>
                                 Job
@@ -178,6 +181,7 @@ return (
                             </th>
                         </tr>
                     </thead>
+                   
                     <tbody>
                         <tr>
                             <td>{tasks.Job}</td>
@@ -187,12 +191,16 @@ return (
                             <td>{tasks.contactEmail}</td>
                             <td>{tasks.payRate}</td>
                             <td>{tasks.taxRate}</td>                
+
                         </tr>
                     </tbody>
+                    
                 </Table>
-                </Col>
-            </Row>
-    <Container className='taskIndex'>
+                </Col>  
+            </Row> 
+            </div>    
+    <Container>
+    
         <Row>
             <Col className='Box-Container' md='4'>
                 <SubTaskCreate
@@ -200,7 +208,7 @@ return (
                 fetchSubTask= {fetchSubTask} />
             </Col>
             <Col md='1'></Col>
-            <Col className='TaskTable Box-Container' md='7'>
+            <Col className='TaskTable-Container' md='7'>
                 <SubTaskTable
                 token= {props.token}
                 fetchSubTask= {fetchSubTask}

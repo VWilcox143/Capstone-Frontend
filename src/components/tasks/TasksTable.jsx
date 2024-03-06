@@ -40,8 +40,10 @@ function TasksTable({tasks, token, fetchTask}) {
     }
 
     return (
-        <>
-            <h1 className='taskList'> Job List for {user}</h1>
+        <>  
+            <h1 className='addTask'> Job List for {user}</h1>
+            <div className='Table-Responsive'>
+            {/* <h1 className='addTask'> Job List for {user}</h1> */}
             <Table hover striped>
                 <thead className='IndexColumn'>
                     <tr>
@@ -75,7 +77,7 @@ function TasksTable({tasks, token, fetchTask}) {
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='button-container'>
 
                     { typeof tasks === "object" &&
 
@@ -119,6 +121,7 @@ function TasksTable({tasks, token, fetchTask}) {
                     }
                 </tbody>
             </Table>
+            </div>
         </>
     )
 }
