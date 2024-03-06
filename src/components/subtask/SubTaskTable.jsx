@@ -6,7 +6,7 @@ import ReceiptIndex from '../receipts/ReceiptIndex';
 // import '../../App.css'
 
 function SubTaskTable({ subTask, token, fetchSubTask}) {
-
+    console.log(subTask)
     const [modal, setModal] = useState(false);
 
     const toggle = () => setModal(!modal);
@@ -131,10 +131,11 @@ function SubTaskTable({ subTask, token, fetchSubTask}) {
                                 <td>{subTask.mileage}</td>
                             
 
-                                <td><Button color="danger" onClick={() => {setCurSubTaskId(subTask._id);  toggle()}}>
+                                <td>
+                                <Button color="danger" onClick={() => {setCurSubTaskId(subTask._id);  toggle()}}>
         View Receipts
-      </Button></td>
-      <Modal isOpen={modal} toggle={toggle} >
+    </Button></td>
+    <Modal isOpen={modal} toggle={toggle} >
         <ModalHeader toggle={toggle}>Receipts</ModalHeader>
         <ModalBody>
         <Container>
