@@ -62,17 +62,17 @@ function ReceiptsTable({tasks, receipts, token, fetchReceipt}) {
                                 <td>{receipts.date}</td>
                                 <td>{receipts.amount}</td>
                                 <td>
-                                <Button
+                                <Button className='deleteButton'
                                         onClick={() => deleteReceipts(receipts._id)}
-                                        color='danger'
+                                        color='dark'
                                     >Delete</Button>
                                 </td>
                                 <td>
-                                    <Button
+                                    <Button className='deleteButton'
                                         onClick={(event) => {
                                             event.stopPropagation()
                                             navigate(`/receipts/update/${receipts._id}`)}}
-                                        color='warning'
+                                        color='dark'
                                     >Edit</Button>
                                 </td>
                             </tr>

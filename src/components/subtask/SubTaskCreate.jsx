@@ -52,7 +52,7 @@ export default function SubTaskCreate(props) {
             props.fetchSubTask()
 
             if(data.message === `Entry Created:`) {
-                console.log(data)
+            
             }else {
                 // alert(data.message)
             }
@@ -63,7 +63,7 @@ export default function SubTaskCreate(props) {
     }
     return (
     <>
-        <h1>Add Entry</h1>
+        <h1 className="addTask">Add Entry</h1>
         <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label>Date</Label>

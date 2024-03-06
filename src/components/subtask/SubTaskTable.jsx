@@ -101,9 +101,9 @@ function SubTaskTable({ subTask, token, fetchSubTask}) {
 
     return (
         <>
-            <h1>Job Entries</h1>
+            <h1 className="addTask">Job Entries</h1>
             <Table hover striped>
-            <thead>
+            <thead className='IndexColumn'>
                     <tr>
                         <th>
                             {tasks.Job}
@@ -134,8 +134,8 @@ function SubTaskTable({ subTask, token, fetchSubTask}) {
                                 <td>
                                 <Button color="danger" onClick={() => {setCurSubTaskId(subTask._id);  toggle()}}>
         View Receipts
-    </Button></td>
-    <Modal isOpen={modal} toggle={toggle} >
+      </Button></td>
+      <Modal size="lg" style={{maxWidth: '1000px', width: '100%'}} isOpen={modal} toggle={toggle} >
         <ModalHeader toggle={toggle}>Receipts</ModalHeader>
         <ModalBody>
         <Container>
