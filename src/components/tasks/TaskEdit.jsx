@@ -119,9 +119,9 @@ export default function TaskEdit(props) {
     return (
     <>
         {/* <h1 style={style}>Edit Task</h1> */}
-        <Container className='taskIndex'>
+        <Container>
             <Row>
-                <Col className='TaskTable Box-Container'>
+                <Col className='Box-Container'>
                 <h1 className='addTask'>Edit Job</h1>
                     <Form onSubmit={handleSubmit}>
                         <FormGroup>
@@ -182,7 +182,7 @@ export default function TaskEdit(props) {
                 </Col>
                 <Col md='3'>
                 </Col>
-                <Col className='Box-Container' md="4">
+                <Col className='Box-Container' md="5">
                 <Table striped>
                     <thead>
                         <tr>
@@ -238,7 +238,7 @@ export default function TaskEdit(props) {
                     </tbody>
                     </Table>
                     <FullButtons>
-                        <Button color='info'
+                        <Button className='BackToTable' color='success'
                         // outline
                         onClick={() => navigate('/tasks')}>Back to Table</Button>
                     </FullButtons>
@@ -249,4 +249,4 @@ export default function TaskEdit(props) {
     )
 }
 
-// ! 02/29 added classnames to make it uniform with taskIndex. Did similar to receiptindex and receipttable.
+

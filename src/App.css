@@ -1,17 +1,16 @@
-/* ! .addTask applies to the addTask title. Entire thing added. */
-/* .loginContent{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
+/* Modal Styling */
+.modal-content {
+  background-color: rgba(0, 0, 0, 0.378) !important; 
+  border: none !important; 
+  color: white !important;
+}
 
-} */
+.modal-tables {
+  margin-top: 50px !important;
+  margin-left: 50px !important;
+}
 
-
-/* Try grid or block to center content? ^ */
-
+/* headers ^ */
 .addTask {
   display: flex;
   color: #2cd4b2;
@@ -26,37 +25,35 @@
   text-shadow: 1px, 1px black;
 } 
 
-.taskList {
+.addEntry {
   display: flex;
   color: #2cd4b2;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-weight: 600;
-  font-style: oblique;
-  font-size: 40px;
   -webkit-text-stroke-width: 1.5px; 
   -webkit-text-stroke-color:  rgb(18, 51, 67);
   padding-top: 7px;
-  padding-bottom: 20px ;
+  padding-bottom: 10px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+  font-weight: 600;
+  font-style: oblique;
+  font-size: 40px;
   text-shadow: 1px, 1px black;
-} 
-/* headers ^ */
+}
 
+/* Added scroll to task index table */
 .Table-Responsive {
   overflow-x: auto;
   max-width: 100%;
 }
 
-/* Table Headers */
+/* Table Styling */
 .IndexColumn>tr>th {
   background-color: rgba(0, 0, 0, 0.483);
   font-size: 15px;
-  text-align: center;
+  text-align: left;
   color: #76a89e;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-
-/* Table Bottom Row */
 .IndexColumn>tr {
   text-decoration:wavy;
   text-align: center;
@@ -67,22 +64,19 @@
   text-align: center;
 }
 
-/*!  .button-container>td {
-  display:flex !important;
-  justify-content: center !important;
-} */
-
+/* Styling for various App containers */
 .Box-Container {
-  padding-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 15px;
   border-style: solid;
   border-width: 2px;
   border-radius: 14px;
   border-color: rgb(23, 65, 86); 
   background: linear-gradient(to bottom, #24475bea, #2d5871e2);
   fill-opacity: 10;
-  /* height: 100vh; */
   box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
   margin-bottom: 100px;
+  height:min-content;
 }
 
 .TaskTable-Container {
@@ -93,7 +87,6 @@
   border-color: rgb(23, 65, 86); 
   background: linear-gradient(to bottom, #24475bea, #2d5871e2);
   fill-opacity: 10;
-  height: 100vh;
   box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
   margin-bottom: 100px;
   overflow-x: auto;
@@ -129,7 +122,6 @@
   border-color: rgb(23, 65, 86); 
   background: linear-gradient(to bottom, #24475bea, #2d5871e2);
   fill-opacity: 10;
-  /* height: 100vh; */
   box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
   margin-bottom: 20px;
 }
@@ -154,17 +146,8 @@
 }
 
 .SubTask-Header {
-  /* padding-top: 5px; */
   padding-bottom: 5px;
   padding-left: 1px;
-  /* max-width: 125px; */
-  /* border-style: solid;
-  border-width: 2px;
-  border-radius: 14px;
-  border-color: rgb(23, 65, 86);  */
-  /* background: linear-gradient(to bottom, #24475bea, #2d5871e2); */
-  /* fill-opacity: 10; */
-  /* box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px; */
   margin-bottom: .5px;
   display: flex;
   color: #2cd4b2;
@@ -172,49 +155,15 @@
   -webkit-text-stroke-color:  rgb(18, 51, 67);
 }
 
-
-.taskIndex .Row {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-}
-
-/* .EditJob {
-  background-color: #f2f2f2; 
-  border: 1px solid #ddd; 
-}
-
-.EditJob th, .EditJob td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.EditJob th {
-  background-color: #4CAF50; 
-  color: white;
-} */
-
-/* .Box-Container {
-  flex: 1;
-  padding: 10px; 
-  margin: 10px; 
-  border: 2px solid rgb(23, 65, 86);
-  border-radius: 14px;
-  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
-  box-shadow: rgba(12, 34, 46, 0.264) 2px 3px 2px 3px;
-} */
-
 .ReceiptCreate,
 .ReceiptsTable {
-  width: 100%; /* Ensure content fills the container */
-  height: 100%; /* Ensure content fills the container */
+  width: 100%; 
+  height: 100%; 
 }
 
-/* ! .App controls the words above the input fields. Added font-size* and height */
+/* Page to page app layout */
 .App {
   position: fixed;
-  /* width: 100%;
-  height: 100%; */
   padding-top: 10px;
   padding-bottom: 20px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
@@ -236,55 +185,25 @@
   right: 0;
 }
 
-.addReceiptButton {
-  background-color: #0b4849e2!important;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-style: oblique;
-}
-
-.updateButton {
-  background-color: #0b4849e2!important;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-style: oblique;
-}
-
-.deleteButton {
-  background-color: #0b4849e2!important;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-style: oblique;
-}
-
+/* Button Styling */
 .AddReceiptBTTB {
   background-color: #0c2a2ae2!important;
-  color: rgba(255, 255, 255, 0.775) !important;
-  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
-  /* font-style: oblique; */
+  font-size: small !important;
+}
+
+.BackToTable {
+  background-color: #0c2a2ae2!important;
 }
 
 .modal-body {
  max-width: 100%;
 }
 
-/* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
-  /* text-shadow: 1.5px 1.5px black; */
-/* input field color: #fffcc8 */
-/* color: rgb(23, 65, 86); */
-  /* color: #24ae92; */
-    /* height: 100vh; */
-    /* color: rgb(9, 74, 36); */
-    /* background-color: #1aad90; */
-/* .taskIndex {
-  padding-top: 30px;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 14px;
-  border-color: rgb(23, 65, 86);
-  background: linear-gradient(to bottom, #24475bea, #2d5871e2);
-  fill-opacity: 10;
-  height: 90vh;
-} */
 
 
+
+
+/* React app's CSS */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -294,17 +213,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  /* font-size: small; */
-  /* background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white; */
 }
 
 .App-link {

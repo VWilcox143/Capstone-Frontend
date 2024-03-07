@@ -93,27 +93,27 @@ function TasksTable({tasks, token, fetchTask}) {
                                 <td>{tasks.payRate}</td>
                                 <td>{tasks.hoursWorked * tasks.payRate * (tasks.taxRate/100)}</td>
                                 <td>
-                                    <Button className='addReceiptButton'
+                                    <Button className='AddReceiptBTTB'
                                         onClick={(event) => {
                                             event.stopPropagation()
                                             navigate(`/receipts/add/${tasks._id}`)}}
-                                        // color='dark'
+                                        color='dark'
                                     >Add Receipt</Button>
                                 </td>
                                 <td>
-                                    <Button className='updateButton'
+                                    <Button className='AddReceiptBTTB'
                                         onClick={(event) => {
                                             event.stopPropagation()
                                             navigate(`/tasks/update/${tasks._id}`)}}
-                                        // color='dark'
+                                        color='dark'
                                     >Update</Button>
                                 </td>
                                 <td>
-                                    <Button className='deleteButton'
+                                    <Button className='AddReceiptBTTB'
                                         onClick={(event) => { 
                                             event.stopPropagation()
                                             deleteTasks(tasks._id)}}
-                                        // color='dark'
+                                        color='dark'
                                     >Delete</Button>
                                 </td>
                             </tr>
